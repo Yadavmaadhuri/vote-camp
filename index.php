@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>votecamp</title>
-  <link rel="stylesheet" href="assets/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting System Registration</title>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <div class="firstcontainer">
-  <h1>WELCOME TO VOTE-CAMP</h1>
-  <h>click to <a href="login.php"> <input type="button" value="login"> </a></h6>
-  </div>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="submit_form.php" method="post">
+            <label for="username">username:</label>
+            <input type="text" id="fname" name="fname" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="batch">Batch:</label>
+            <input type="text" id="batch" name="batch" required>
 
-</body>
+            <label for="crn">CRN Number:</label>
+            <input type="text" id="crn" name="crn">
+
+          
+            <button type="submit" class="Login-btn">Login</button>
+            <h6>Don't have an account?click here to <a href="register.php"><input type="button" class="register-btn" value="Register"></b></a> </h6>
+        </form>
+    </div>
+</body>  
 </html>

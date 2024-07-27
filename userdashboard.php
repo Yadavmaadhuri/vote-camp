@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
+    <link rel="stylesheet" href="vote-camp/assets/index.css">
 </head>
 <body>
     <header>
     <div class="navbar">
         <nav>
             <ul>
-                <li><a href="#candidates">candidates</a></li>
-                <li><a href="#candidates">result</a></li> 
-                <li><a href="#candidates">logout</a></li>
+               
+                <li><a href="#logout">logout</a></li>
             </ul>
         </nav>
     </div>
