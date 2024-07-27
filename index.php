@@ -1,19 +1,4 @@
-<?php
-  require_once("config/database.php");
-  if(isset($_POST["register-btn"])){
-    $su_crn = mysqli_real_escape_string($db,$_POST["$su_crn"]);
-    $su_username = mysqli_real_escape_string($db,$_POST["$su_username"]);
-    $su_password = mysqli_real_escape_string($db,$_POST["$su_password"]);
-    $su_role ="voter";
-    if($su_password==$_confirmpassword)   {
-        mysqli_query($con,"INSERT INTO user(crn,username,faculty,batch,password,role)VALUES('".$su_crn."',
-        '".$su_username."','".$su_password."','".$su_role."')")or die(mysqli_error($con)); 
-    }
-  }
-?>
 
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +10,7 @@
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form action="submit_form.php" method="post">
+        <form action="" method="post">
             <label for="username">username:</label>
             <input type="text" id="fname" name="fname" required>
             <label for="password">Password:</label>

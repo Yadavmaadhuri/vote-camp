@@ -10,4 +10,28 @@
      die("ERROR: Could not connect. " 
          . mysqli_connect_error());
  }
+ //creating table for Admin
+$sql = "CREATE TABLE IF NOT EXISTS sadmin(
+    sid INT PRIMARY KEY AUTO_INCREMENT,
+    adminusername VARCHAR(30) NOT NULL,
+    adminpassword varchar(10) NOT NULL
+    )";
+
+if (mysqli_query($conn, $sql)) {
+    // echo "<br>";
+    //echo "Table Created Successfully.";
+} else {
+    echo "<br>";
+    echo "Error Creating table" . mysqli_error($conn);
+}
+
+$sql = "INSERT IGNORE INTO sadmin(sid,adminusername,adminpassword) VALUES ('101','admin@gmail.com','admin123')";
+if (mysqli_query($conn, $sql)) {
+    // echo "<br>";
+    //echo "Data inserted Successfully.";
+} else {
+    echo "<br>";
+    echo "Error Inserting data" . mysqli_error($conn);
+}
+
  ?>

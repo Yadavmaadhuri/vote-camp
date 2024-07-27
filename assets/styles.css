@@ -8,12 +8,11 @@ body, h2, h6, form, input, button {
 /* Apply a background color to the entire page */
 body {
     font-family: Arial, sans-serif;
-    background: #282883;
+    background: #2a2a2c;
     margin: 0;
-    height: 100vh;
+    height: 50vh;
     display: flex;
-    justify-content: flex-end; /* Align form to the right side */
-    align-items: center;
+    justify-content:center /* Align form to the right side */
 }
 
 /* Container styling */
@@ -23,8 +22,10 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 50vw; /* Takes half of the screen width */
-    max-width: 500px; /* Maximum width for larger screens */
+    height: fit-content;
+    max-width:400px; /* Maximum width for larger screens */
 }
+
 
 /* Heading styling */
 h2 {
@@ -43,7 +44,7 @@ label {
 }
 
 /* Input fields styling */
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"],select {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 15px;
