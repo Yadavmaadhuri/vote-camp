@@ -1,20 +1,13 @@
-<?php 
-$servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "votcamp";
-
-    //create a connection
-    $con = mysqli_connect($servername,$username,$password,$dbname);
-
-    
-    // if(!$con){
-    //     echo "Unable to connect to database<br>".mysqli_connect_error();
-    // }
-    
-    //Check Connection
-    if (!$con) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-    
-    ?>
+<?php
+ $servername = "localhost";
+ $username = "root";
+ $password = "";
+ $dbname = "votcamp";
+ $conn = mysqli_connect("localhost", "root", "", "votcamp");
+ 
+ // Check connection
+ if($conn === false){
+     die("ERROR: Could not connect. " 
+         . mysqli_connect_error());
+ }
+ ?>
