@@ -44,14 +44,13 @@ label {
 }
 
 /* Input fields styling */
-input[type="text"], input[type="password"],select {
+input[type="text"], input[type="password"], input[type="email"], select {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
-
 /* Button styling */
 button.Login-btn {
     background: #4CAF50;
@@ -62,6 +61,8 @@ button.Login-btn {
     cursor: pointer;
     width: 100%;
     font-size: 16px;
+    display: inline-block;
+    text-align: center;
 }
 
 button.Login-btn:hover {
@@ -80,7 +81,7 @@ h6 a {
     text-decoration: none;
 }
 
-input.register-btn {
+button.register-btn {
     background: #f8f9fa;
     color: #007bff;
     border: 1px solid #007bff;
@@ -93,7 +94,78 @@ input.register-btn {
     text-align: center;
 }
 
-input.register-btn:hover {
+button.register-btn:hover {
     background: #007bff;
     color: #fff;
+}
+/* for userdashboard */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.udcontainer {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height:fit-content;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.candidates {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.candidate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-name {
+    font-size: 16px;
+}
+
+.vote-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.vote-btn:hover {
+    background-color: #2980b9;
 }

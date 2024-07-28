@@ -20,8 +20,7 @@
     $role=$_REQUEST['role'];
         
         
-        // Performing insert query execution
-        // here our table name is college
+        
         $sql = "INSERT INTO users VALUES ('$username', 
             '$faculty','$batch','$crn','$password','$role')";
         
