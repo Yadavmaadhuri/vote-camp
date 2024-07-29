@@ -1,3 +1,13 @@
+
+<?php
+include_once '../config/database.php';
+$sql = "SELECT * FROM candidates";
+$result = mysqli_query($conn, $sql);
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,33 +18,31 @@
 </head>
 <body>
     <div class="udcontainer">
-    <a href="adminlogin.php"> <input type="button" class="logout-btn" value="Logout"> </a>
+    
     <nav class="navbar">
     <ul>
-        <li><a href="index.php?page=home">Home</a></li>
-        <li><a href="index.php?page=candidate">Candidate Management</a></li>
-        <li><a href="index.php?page=vote">Vote Management</a></li>
-        <li><a href="index.php?page=logout">Logout</li></a>
+        <li><a href="admindashboard.php">Home</a></li>
+        <li><a href="candidate.php">Add Candidate</a></li>
+        <li><a href="vote.php">Vote Management</a></li>
+        <li><a href="adminlogout.php">Logout</li></a>
     </ul>
 </nav>
 
 
         <h1>vote Here</h1>
-        <div class="candidates">
-            <div class="candidate">
-                <span class="candidate-name">Sarthak</span>
-                <button class="vote-btn">Vote</button>
+       <?php
+        if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<div class='candidates'>
+            <div class='candidate' style='width:90%;'>
+                <span class='candidate-name'>".$row['candidatename']."</span>
+                <button class='vote-btn'>Vote</button>
             </div>
-            <div class="candidate">
-                <span class="candidate-name">Mahesh</span>
-                <button class="vote-btn">Vote</button>
-            </div>
-            <div class="candidate">
-                <span class="candidate-name">Amogh</span>
-                <button class="vote-btn">Vote</button>
-            </div>
-            <!-- Add more candidates as needed -->
-        </div>
+            
+            </div>";
+                    }
+                }
+            ?>
     </div>
 </body>
 </html>

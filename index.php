@@ -1,4 +1,22 @@
-
+<?php
+include 'config/database.php';
+function login($crn,$username, $password){
+    //$conn = connect();
+    $sql = "SELECT * FROM users WHERE  crn='$crn'AND username='$username' AND password = '$password'";
+    $result = mysqli_query($conn, $sql);
+    if(mysqli_num_rows($result) > 0){
+        $user = mysqli_fetch_assoc($result);
+        $_SESSION['id'] = $user['crn'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['password'] = $user['password'];
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +28,7 @@
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form action="" method="post">
+        <form  method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>">
            <label for="crn">CRN Number:</label>
             <input type="text" id="crn" name="crn" required>
             <label for="username">username:</label>

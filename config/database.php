@@ -10,7 +10,10 @@
      die("ERROR: Could not connect. " 
          . mysqli_connect_error());
  }
- //creating table for Admin
+
+
+
+//creating table for Admin
 $sql = "CREATE TABLE IF NOT EXISTS sadmin(
     sid INT PRIMARY KEY AUTO_INCREMENT,
     adminusername VARCHAR(30) NOT NULL,
@@ -34,4 +37,21 @@ if (mysqli_query($conn, $sql)) {
     echo "Error Inserting data" . mysqli_error($conn);
 }
 
- ?>
+
+
+ 
+ 
+ //creating table for candidates
+$sql = "CREATE TABLE IF NOT EXISTS candidates(
+    cid INT PRIMARY KEY AUTO_INCREMENT,
+    candidatename VARCHAR(30) NOT NULL,
+    crn VARCHAR(10) NOT NULL
+
+    )";
+    if(mysqli_query($conn,$sql)){
+
+    }
+    else{
+        echo  "<br>";
+    }
+    ?>
