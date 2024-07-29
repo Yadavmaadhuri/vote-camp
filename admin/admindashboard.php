@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href='../assets/styles.css'>
 </head>
 <body>
-    </div>
     <div class="udcontainer">
-        <a href="index.php"> <button class="logout-btn">Logout</button> </a>
+    <a href="adminlogin.php"> <input type="button" class="logout-btn" value="Logout"> </a>
+    <nav class="navbar">
+    <ul>
+        <li><a href="index.php?page=home">Home</a></li>
+        <li><a href="index.php?page=candidate">Candidate Management</a></li>
+        <li><a href="index.php?page=vote">Vote Management</a></li>
+        <li><a href="index.php?page=logout">Logout</li></a>
+    </ul>
+</nav>
+
 
         <h1>vote Here</h1>
         <div class="candidates">

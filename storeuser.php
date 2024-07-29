@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -6,38 +6,83 @@
 </head>
 
 <body>
-    <center>
-        <?php
-        include('config/database.php');
-        // Taking all  values from the form data(input)
+    <>
+      
+    
+    //   // Define variables and initialize with empty values
+    //   $crn = $username = $email = $faculty = $password = $confirm_password = "";
+    //   $crn_err = $username_err = $email_err = $faculty_err = $password_err = $confirmpassword_err = "";
+      
+    //   // Process form data when form is submitted
+    //   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          
+    //       // Validate CRN
+    //       if (empty(trim($_POST["crn"]))) {
+    //           $crn_err = "Please enter your CRN number.";
+    //       } else {
+    //           $crn = trim($_POST["crn"]);
+    //       }
+          
+    //       // Validate username
+    //       if (empty(trim($_POST["username"]))) {
+        //       $username_err = "Please enter a username.";
+        //   } else {
+        //       $username = trim($_POST["username"]);
+        //   }
+          
+        //   // Validate email
+        //   if (empty(trim($_POST["email"]))) {
+        //       $email_err = "Please enter your email.";
+        //   } elseif (!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
+        //       $email_err = "Please enter a valid email address.";
+        //   } else {
+        //       $email = trim($_POST["email"]);
+        //   }
+          
+        //   // Validate faculty
+        //   if (empty(trim($_POST["faculty"]))) {
+        //       $faculty_err = "Please enter your faculty.";
+        //   } else {
+        //       $faculty = trim($_POST["faculty"]);
+        //   }
+          
+        //   // Validate password
+        //   if (empty(trim($_POST["password"]))) {
+        //       $password_err = "Please enter a password.";
+        //   } elseif (strlen(trim($_POST["password"])) < 6) {
+        //       $password_err = "Password must have at least 6 characters.";
+        //   } else {
+        //       $password = trim($_POST["password"]);
+        //   }
+          
+        //   // Validate confirm password
+        //   if (empty(trim($_POST["confirm_password"]))) {
+        //       $confirmpassword_err = "Please confirm password.";
+        //   } else {
+        //       $confirm_password = trim($_POST["confirm_password"]);
+        //       if (empty($password_err) && ($password != $confirm_password)) {
+        //           $confirmpassword_err = "Password did not match.";
+        //       }
+        //   }  
         
-    $crn =  $_REQUEST['crn'];
-    $username=  $_REQUEST['username'];
-    $faculty =  $_REQUEST['faculty'];
-    $batch=  $_REQUEST['batch'];
-    $password =  $_REQUEST['password'];
-    //$confirmpassword =  $_REQUEST['confirmpassword'];
-    $role=$_REQUEST['role'];
         
+        // $sql = "INSERT INTO users VALUES ('$username', 
+        //     '$email','$crn','$password','$role')";
         
-        
-        $sql = "INSERT INTO users VALUES ('$username', 
-            '$faculty','$batch','$crn','$password','$role')";
-        
-        if(mysqli_query($conn, $sql)){
-            echo "<h3>data stored in a database successfully." 
-                . " Please browse your localhost php my admin" 
-                . " to view the updated data</h3>"; 
+        // if(mysqli_query($conn, $sql)){
+        //     echo "<h3>data stored in a database successfully." 
+        //         . " Please browse your localhost php my admin" 
+        //         . " to view the updated data</h3>"; 
 
-        } else{
-            echo "ERROR: Hush! Sorry $sql. " 
-                . mysqli_error($conn);
-        }
+        // } else{
+        //     echo "ERROR: Hush! Sorry $sql. " 
+        //         . mysqli_error($conn);
+        // }
         
         // Close connection
-        mysqli_close($conn);
-        ?>
-    </center>
+        // mysqli_close($conn);
+        // ?> -->
+    
 </body>
 
-</html>
+</html> -->
