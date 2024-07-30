@@ -52,7 +52,14 @@ include 'config/database.php';
                 $confirmpassword_err = "Password did not match.";
             }
             else{
-                $sql = "INSERT INTO users VALUES ('$crn','$username', '$email','$password')";
+                if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                    $crn=$_POST['crn'];
+                    $username=$_POST['username'];
+                    $email=$_POST['email'];
+                    $userpassword=$_POST['password'];
+
+
+                $sql = "INSERT INTO users VALUES ('$crn','$username', '$email','$userpassword')";
       
           
                 if(mysqli_query($conn, $sql)){

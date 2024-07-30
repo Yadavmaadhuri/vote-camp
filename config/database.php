@@ -10,6 +10,20 @@
      die("ERROR: Could not connect. " 
          . mysqli_connect_error());
  }
+ //creating table for users
+$sql = "CREATE TABLE IF NOT EXISTS users(
+    usercrn INT PRIMARY KEY NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    userpassword varchar(10) NOT NULL
+    )";
+
+if (mysqli_query($conn, $sql)) {
+    // echo "<br>";
+    //echo "Table Created Successfully.";
+} else {
+    echo "<br>";
+    echo "Error Creating table" . mysqli_error($conn);
+}
 
 
 
