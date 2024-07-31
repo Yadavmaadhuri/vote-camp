@@ -36,7 +36,7 @@ $result = mysqli_query($conn, $sql);
                         echo "<div class='candidates'>
             <div class='candidate' style='width:90%;'>
                 <span class='candidate-name'>".$row['candidatename']."</span>
-                <button class='vote-btn'>Vote</button>
+                <button class='vote-btn'>View</button>
             </div>
             
             </div>";
