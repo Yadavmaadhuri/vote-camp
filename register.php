@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>vote-camp</title>
     <link rel="stylesheet" href="assets/styles.css">
     <style>
-        .error { color: brown; }
+        .error { color: red; }
     </style>
 </head>
 <body>
