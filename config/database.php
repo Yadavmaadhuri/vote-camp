@@ -35,8 +35,6 @@ if(mysqli_query($conn, $sql)){
     die("ERROR: Could not create database. " . mysqli_error($conn));
 }
 
-// Close the initial connection
-mysqli_close($conn);
 
 // Connect to the newly created database
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -48,8 +46,9 @@ if($conn === false){
 
 // Create table for users
 $sql = "CREATE TABLE IF NOT EXISTS users(
-    usercrn INT PRIMARY KEY NOT NULL,
+    crn INT PRIMARY KEY NOT NULL,
     username VARCHAR(30) NOT NULL,
+    email VARCHAR(30) NOT NULL,
     userpassword VARCHAR(255) NOT NULL
 )";
 if (mysqli_query($conn, $sql)) {
@@ -89,7 +88,3 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "Error creating 'candidates' table: " . mysqli_error($conn);
 }
-
-// Close connection
-mysqli_close($conn);
-?>
