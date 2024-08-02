@@ -9,9 +9,9 @@ function login($crn, $username, $password) {
 
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
-        $_SESSION['id'] = $user['crn'];
+        $_SESSION['crn'] = $user['crn'];
         $_SESSION['username'] = $user['username'];
-        $_SESSION['email'] = $user['email'];
+        $_SESSION['password'] = $user['password'];
         return true;
     } else {
         return false;

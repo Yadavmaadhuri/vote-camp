@@ -15,14 +15,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $crn_err = "Please enter your CRN number.";
     } else {
         $crn = trim($_POST["crn"]);
+        if (!ctype_digit($crn) || strlen($crn) != 5) {
+            $crn_err = "CRN must be exactly 5 digits long.";
+        }
     }
 
-    // Validate username
-    if (empty(trim($_POST["username"]))) {
-        $username_err = "Please enter a username.";
-    } else {
-        $username = trim($_POST["username"]);
+   // Validate username
+   if (empty(trim($_POST["username"]))) {
+    $username_err = "Please enter a username.";
+} else {
+    $username = trim($_POST["username"]);
+    if (strlen($username) < 3 || strlen($username) > 10) {
+        $username_err = "Username must be between 3 and 10 characters long.";
     }
+}
+
 
     // Validate email
     if (empty(trim($_POST["email"]))) {
@@ -62,9 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO users VALUES ('$crn','$username', '$email','$userpassword')";
 
         if (mysqli_query($conn, $sql)) {
-            echo "<h3>data stored in a database successfully."
-                . " Please browse your localhost php my admin"
-                . " to view the updated data</h3>";
+           
         } else {
             echo "ERROR: Hush! Sorry $sql. "
                 . mysqli_error($conn);

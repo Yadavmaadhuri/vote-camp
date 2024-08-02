@@ -2,10 +2,10 @@
 include '../config/database.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 $candidatename=$_POST['candidatename'];
-$crn=$_POST['crn'];
+$id=$_POST['id'];
 
 
-     $sql = "INSERT INTO candidates(candidatename,crn) VALUES ('$candidatename','$crn')";
+     $sql = "INSERT INTO candidates(candidatename,id) VALUES ('$candidatename','$id')";
       
           
   if(mysqli_query($conn, $sql)){
@@ -33,8 +33,8 @@ $crn=$_POST['crn'];
 <form action="" method="post">
 <label for="username">username:</label>
 <input type="text" id="candidatename" name="candidatename" required>
-<label for="crn">crn:</label>
-<input type="number" id="crn" name="crn" required>
+<label for="id">id:</label>
+<input type="number" id="id" name="id" required>
 <input type="submit" value="submit">
 </form>
 </body>
