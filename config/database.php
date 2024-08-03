@@ -76,4 +76,17 @@ if (mysqli_query($conn, $sql)) {
 
 // Create table for votes
 
-?>
+$sql = "CREATE TABLE IF NOT EXISTS votes(
+    vid INT PRIMARY KEY AUTO_INCREMENT,
+    cid INT NOT NULL,
+    crn INT  NOT NULL,
+    FOREIGN KEY (cid) REFERENCES candidates(cid),
+    FOREIGN KEY (crn) REFERENCES users(crn)
+    
+    -- crn VARCHAR(10) NOT NULL -- Uncomment if you need CRN here
+)";
+if (mysqli_query($conn, $sql)) {
+    // echo "Table 'candidates' created successfully.";
+} else {
+    echo "Error creating 'candidates' table: " . mysqli_error($conn);
+}

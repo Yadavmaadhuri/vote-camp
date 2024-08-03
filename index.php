@@ -9,8 +9,8 @@ $userpassword=$_POST['userpassword'];
 $check = mysqli_query($conn,"SELECT * FROM users WHERE crn='$crn' AND username='$username' AND userpassword='$userpassword'");
 
 if (mysqli_num_rows($check)>0){
-    $userdata= mysqli_fetch_array($check);
-    $_SESSION['userdata']=$userdata;
+   // $userdata= mysqli_fetch_array($check);
+    $_SESSION['crn']=$crn;
 
     echo '
     <script>

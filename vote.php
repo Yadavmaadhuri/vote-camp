@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vote</title>
-</head>
-<body>
-   <form action></form> 
-</body>
-</html>
+<?php
+$title = "Vote";
+require_once 'config/database.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+     $cid= $_POST['cid'];
+     $crn = $_POST['crn'];
+
+    $sql = "INSERT INTO votes (cid,crn) VALUES ('$cid','$crn')";
+
+    if (mysqli_query($conn, $sql)) {
+      header("Location: userdashboard.php");
+      
+    } else {
+      echo "Error adding the details: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+
