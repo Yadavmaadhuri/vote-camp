@@ -5,7 +5,7 @@ $candidatename=$_POST['candidatename'];
 $id=$_POST['id'];
 
 
-     $sql = "INSERT INTO candidates(candidatename,id) VALUES ('$candidatename','$id')";
+     $sql = "INSERT INTO candidates(candidatename,cid) VALUES ('$candidatename','$id')";
       
           
   if(mysqli_query($conn, $sql)){

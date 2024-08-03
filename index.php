@@ -2,7 +2,7 @@
 session_start();
 
 include 'config/database.php';
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $crn=$_POST['crn'];
 $username=$_POST['username'];
 $userpassword=$_POST['userpassword'];
@@ -21,7 +21,7 @@ else {
     alert("Invalid Credentials")
     </script>';
 }
-
+}
 
 
 ?>

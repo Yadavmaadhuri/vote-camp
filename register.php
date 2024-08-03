@@ -19,10 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $crn_err = "CRN must be exactly 5 digits long.";
         }
         else{
-            $sql=mysqli_query("SELECT 'crn' FROM users WHERE 'crn'=$crn");
-             if (mysqli_query($conn, $sql))
-        }
+            
+        //     $sql=mysqli_query("SELECT 'crn' FROM users WHERE 'crn'=$crn");
+        //      if (mysqli_query($conn, $sql)){
+
+        //       }
+         }
     }
+}
 
    // Validate username
    if (empty(trim($_POST["username"]))) {
@@ -73,14 +77,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO users VALUES ('$crn','$username', '$email','$userpassword')";
 
         if (mysqli_query($conn, $sql)) {
-            header('location: index.php' );
+            header('Location: index.php' );
            
         } else {
            // echo "ERROR: Hush! Sorry $sql. "
              //   . mysqli_error($conn);
         }
     }
-}
+
 ?>
 
 <!DOCTYPE html>
