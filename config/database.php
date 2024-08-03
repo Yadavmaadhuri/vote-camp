@@ -1,31 +1,34 @@
 <?php
-function connect(){
-    $hostname = "localhost";
-     $username = "root";
-     $password = "";
-     $dbname = "Votcamp";
+// function connect(){
+//     $hostname = "localhost";
+//      $username = "root";
+//      $password = "";
+//      $dbname = "Votcamp";
  
-     $conn = mysqli_connect($hostname, $username, $password, $dbname);
+//      $conn = mysqli_connect($hostname, $username, $password, $dbname);
      
-     if(!$conn){
-         die("Connection failed: " . mysqli_connect_error());
-     }
-     else{
-         return $conn;
-     }
- }
+//      if(!$conn){
+//          die("Connection failed: " . mysqli_connect_error());
+//      }
+//      else{
+//          return $conn;
+//      }
+//  }
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "votcamp";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password);
+$conn = mysqli_connect($servername, $username, $password,$dbname);
 
 // Check connection
 if($conn === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
+
+
 
 // Create database if it doesn't exist
 $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
@@ -51,6 +54,8 @@ $sql = "CREATE TABLE IF NOT EXISTS users(
     email VARCHAR(30) NOT NULL,
     userpassword VARCHAR(255) NOT NULL
 )";
+
+
 if (mysqli_query($conn, $sql)) {
     // echo "Table 'users' created successfully.";
 } else {

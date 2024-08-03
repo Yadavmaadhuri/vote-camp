@@ -1,10 +1,14 @@
 
 <?php
+session_start();
+if(!isset($_SESSION['userdata'])){
+    header("location: index.php");
+}
 include_once 'config/database.php';
 $sql = "SELECT * FROM candidates";
 $result = mysqli_query($conn, $sql);
 ?>
-
+ 
 
 
 

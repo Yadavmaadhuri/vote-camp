@@ -1,35 +1,29 @@
 <?php
-include 'config/database.php';
 session_start();
 
-function login($crn, $username, $password) {
-    $conn = connect();
-    $sql = "SELECT * FROM users WHERE crn='$crn' AND username='$username' AND password='$password'";
-    $result = mysqli_query($conn, $sql);
+include 'config/database.php';
 
-    if (mysqli_num_rows($result) > 0) {
-        $user = mysqli_fetch_assoc($result);
-        $_SESSION['crn'] = $user['crn'];
-        $_SESSION['username'] = $user['username'];
-        $_SESSION['password'] = $user['password'];
-        return true;
-    } else {
-        return false;
-    }
+$crn=$_POST['crn'];
+$username=$_POST['username'];
+$userpassword=$_POST['userpassword'];
+$check = mysqli_query($conn,"SELECT * FROM users WHERE crn='$crn' AND username='$username' AND userpassword='$userpassword'");
+
+if (mysqli_num_rows($check)>0){
+    $userdata= mysqli_fetch_array($check);
+    $_SESSION['userdata']=$userdata;
+
+    echo '
+    <script>
+    window.location = "userdashboard.php" </script>';
+}
+else {
+    echo '<script> 
+    alert("Invalid Credentials")
+    </script>';
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $crn = $_POST['crn'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
 
-    if (login($crn, $username, $password)) {
-        header("Location: userdashboard.php");
-        exit();
-    } else {
-        echo "Invalid credentials";
-    }
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         function validateForm() {
             var crn = document.getElementById("crn").value;
             var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
+            var password = document.getElementById("userpassword").value;
 
             if (crn == "" || username == "" || password == "") {
                 alert("All fields must be filled out");
@@ -62,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="userpassword" name="userpassword" required>
             <button type="submit" class="Login-btn">Login</button>
             <p>Don't have an account? <a href="register.php">Sign up</a></p>
         </form>
