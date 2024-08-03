@@ -1,5 +1,5 @@
 
-<?php
+ <?php
 session_start();
 if(!isset($_SESSION['userdata'])){
     header("location: index.php");
@@ -7,7 +7,7 @@ if(!isset($_SESSION['userdata'])){
 include_once 'config/database.php';
 $sql = "SELECT * FROM candidates";
 $result = mysqli_query($conn, $sql);
-?>
+?> 
  
 
 
@@ -23,10 +23,11 @@ $result = mysqli_query($conn, $sql);
 <body>
     <div class="udcontainer">
     
+    <!-- <h2 style="color:red">userdashboard</h2> -->
     <nav class="navbar">
+        
     <ul>
         <li><a href="userdashboard.php">Home</a></li>
-        <!-- <li><a href="candidate.php">Candidate</a></li> -->
         <li><a href="result.php">Result</a></li>
         <li><a href="logout.php">Logout</li></a>
     </ul>
@@ -44,6 +45,7 @@ $result = mysqli_query($conn, $sql);
             </div>
             
             </div>";
+         
                     }
                 }
             ?>

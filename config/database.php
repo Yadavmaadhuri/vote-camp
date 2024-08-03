@@ -86,10 +86,30 @@ if (mysqli_query($conn, $sql)) {
 $sql = "CREATE TABLE IF NOT EXISTS candidates(
     cid INT PRIMARY KEY AUTO_INCREMENT,
     candidatename VARCHAR(30) NOT NULL,
-    crn VARCHAR(10) NOT NULL
+    -- crn VARCHAR(10) NOT NULL
 )";
 if (mysqli_query($conn, $sql)) {
     // echo "Table 'candidates' created successfully.";
+} else {
+    echo "Error creating 'candidates' table: " . mysqli_error($conn);
+}
+
+
+
+// Create table for votes
+$sql = "CREATE TABLE IF NOT EXISTS votes(
+    crn INT PRIMARY KEY ,
+    username VARCHAR(30) NOT NULL,
+    candidatename VARCHAR(30) NOT NULL,
+    cid INT PRIMARY KEY,
+    FOREIGN KEY (crn) REFERENCES users(crn),
+    FOREIGN KEY (username) REFERENCES users(username),
+    FOREIGN KEY (candidatename) REFERENCES candidates(candidatename),
+    FOREIGN KEY (cid) REFERENCES candidates(cid),
+   
+)";
+if (mysqli_query($conn, $sql)) {
+    // echo "Table 'votes' created successfully.";
 } else {
     echo "Error creating 'candidates' table: " . mysqli_error($conn);
 }
