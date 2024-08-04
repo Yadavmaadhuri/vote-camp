@@ -22,6 +22,7 @@ if (mysqli_query($conn, $sql)) {
 }
 
 // Connect to the newly created database
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check connection
@@ -33,7 +34,6 @@ if ($conn === false) {
 $sql = "CREATE TABLE IF NOT EXISTS users(
     crn INT PRIMARY KEY NOT NULL,
     username VARCHAR(30) NOT NULL,
-    email VARCHAR(30) NOT NULL,
     userpassword VARCHAR(255) NOT NULL
 )";
 if (mysqli_query($conn, $sql)) {

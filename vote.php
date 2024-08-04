@@ -16,3 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
+$sql="SELECT *FROM votes WHERE cid=(SELECT MAX(cid)FROM votes)";
+$result=mysqli_query($conn,$sql);
+
+

@@ -8,7 +8,7 @@ body, h2, h6, form, input, button {
 /* Apply a background color to the entire page */
 body {
     font-family: Arial, sans-serif;
-    background: #2a2a2c;
+    background:rgb(174, 174, 199);
     margin: 0;
     height: 50vh;
     display: flex;
@@ -21,6 +21,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    margin: 20px;
     width: 50vw; /* Takes half of the screen width */
     height: fit-content;
     max-width:400px; /* Maximum width for larger screens */
@@ -44,7 +45,7 @@ label {
 }
 
 /* Input fields styling */
-input[type="text"], input[type="password"], input[type="email"], input[type="number"], select {
+input[type="text"], input[type="password"],  input[type="number"], select {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 15px;
@@ -98,96 +99,108 @@ button.register-btn:hover {
     background: #007bff;
     color: #fff;
 }
-/* for userdashboard */
 
 
 
 
 
+/* for dashboard */
+/*  */
 
-
-
-
-
-
-
-
-/* admin ko css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar {
-    background-color: #333;
-    padding: 1rem;
+.udcontainer {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:rgb(197, 197, 241);
+    
 }
 
 .navbar ul {
     list-style: none;
-    margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: space-around;
+    text-align: center;
+ 
+    
+    
 }
 
 .navbar li {
     display: inline;
+    margin-right: 10px;
+    color:white;
+    justify-content:space-between;
+    padding-left: 6rem;
 }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 14px 20px;
-    display: block;
-}
+.navbar li a:hover{
+    color:rgb(107, 107, 226);
 
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
 }
-
-.content {
-    padding: 20px;
-}
-
-.udcontainer {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.candidates {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+     
+  
     
+
+.navbar li a {
+    text-decoration:none; 
+    font-weight: bold;
+    color: #161515;
+    
+ 
 }
 
-.candidate {
-    width:100%;
-    margin: 10px;
-   
+
+.table-container {
+    margin-top: 20px;
 }
 
-.candidate-name {
-    font-size: 20px;
-    margin-right: 20px;
-    width: 80%;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
-.vote-btn {
+th , td {
+    padding: 15px;
+    text-align: left;
+}
+
+thead {
+    background-color: #3B43D6;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f4f4f9;
+}
+
+tbody tr:hover {
+    background-color: #d4d2d2;
+}
+
+.delete-button {
+    border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    color: #fff;
     cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.logout-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.delete-button[disabled] {
+    cursor: not-allowed;
 }
+ h1{
+    text-align: center;}
+
+.vote-btn{
+    border: none;
+    padding: 10px 20px;
+    background-color: #3B43D6;
+    color:white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+
+}
+

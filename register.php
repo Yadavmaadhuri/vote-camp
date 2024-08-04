@@ -1,11 +1,9 @@
 <?php
 include 'config/database.php';
-?>
 
-<?php
 // Define variables and initialize with empty values
-$crn = $username = $email = $password = $confirm_password = "";
-$crn_err = $username_err = $email_err = $password_err = $confirmpassword_err = "";
+$crn = $username  = $password = $confirm_password = "";
+$crn_err = $username_err  = $password_err = $confirmpassword_err = "";
 
 // Process form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,38 +16,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!ctype_digit($crn) || strlen($crn) != 5) {
             $crn_err = "CRN must be exactly 5 digits long.";
         }
-        else{
-            
-        //     $sql=mysqli_query("SELECT 'crn' FROM users WHERE 'crn'=$crn");
-        //      if (mysqli_query($conn, $sql)){
-
-        //       }
-         }
     }
-}
 
-   // Validate username
-   if (empty(trim($_POST["username"]))) {
-    $username_err = "Please enter a username.";
-} else {
-    $username = trim($_POST["username"]);
-    if (strlen($username) < 3 || strlen($username) > 10) {
-        $username_err = "Username must be between 3 and 10 characters long.";
-    }
-}
-
-
-    // Validate email
-    if (empty(trim($_POST["email"]))) {
-        $email_err = "Please enter your email.";
-    } elseif (!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
-        $email_err = "Please enter a valid email address.";
+    // Validate username
+    if (empty(trim($_POST["username"]))) {
+        $username_err = "Please enter a username.";
     } else {
-        $email = trim($_POST["email"]);
+        $username = trim($_POST["username"]);
+        if (strlen($username) < 3 || strlen($username) > 10) {
+            $username_err = "Username must be between 3 and 10 characters long.";
+        }
     }
+
 
     // Validate password
-    if (empty(trim($_POST["password"]))) {
+    if (!isset($_POST["password"]) || empty(trim($_POST["password"]))) {
         $password_err = "Please enter a password.";
     } elseif (strlen(trim($_POST["password"])) < 4) {
         $password_err = "Password must have at least 4 characters.";
@@ -58,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validate confirm password
-    if (empty(trim($_POST["confirm_password"]))) {
+    if (!isset($_POST["confirm_password"]) || empty(trim($_POST["confirm_password"]))) {
         $confirmpassword_err = "Please confirm password.";
     } else {
         $confirm_password = trim($_POST["confirm_password"]);
@@ -68,23 +49,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Check for errors before inserting in database
-    if (empty($crn_err) && empty($username_err) && empty($email_err) && empty($password_err) && empty($confirmpassword_err)) {
+    if (empty($crn_err) && empty($username_err)  && empty($password_err) && empty($confirmpassword_err)) {
         $crn = $_POST['crn'];
         $username = $_POST['username'];
-        $email = $_POST['email'];
         $userpassword = $_POST['password'];
 
-        $sql = "INSERT INTO users VALUES ('$crn','$username', '$email','$userpassword')";
+        $sql = "INSERT INTO users VALUES ('$crn','$username','$userpassword')";
 
         if (mysqli_query($conn, $sql)) {
-            header('Location: index.php' );
-           
+            header('Location: index.php');
         } else {
-           // echo "ERROR: Hush! Sorry $sql. "
-             //   . mysqli_error($conn);
+            // echo "ERROR: Hush! Sorry $sql. "
+            //   . mysqli_error($conn);
         }
     }
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -111,10 +90,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="username">Username:<span style="color:red">*</span></label>
             <input type="text" id="username" name="username" required>
             <span class="error"><?php echo $username_err; ?></span>
-
-            <label for="email">Email:<span style="color:red">*</span></label>
-            <input type="email" id="email" name="email" required>
-            <span class="error"><?php echo $email_err; ?></span>
 
             <label for="password">New Password:<span style="color:red">*</span></label>
             <input type="password" id="password" name="password" required>

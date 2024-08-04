@@ -23,26 +23,45 @@ $result = mysqli_query($conn, $sql);
     <ul>
         <li><a href="admindashboard.php">Home</a></li>
         <li><a href="candidate.php">Add Candidate</a></li>
-        <li><a href="vote.php">Vote Management</a></li>
+        <li><a href="result.php">Vote Management</a></li>
         <li><a href="adminlogout.php">Logout</li></a>
     </ul>
 </nav>
 
 
         <h1>vote Here</h1>
-       <?php
-        if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<div class='candidates'>
-            <div class='candidate' style='width:90%;'>
-                <span class='candidate-name'>".$row['candidatename']."</span>
-                <button class='vote-btn'>View</button>
-            </div>
+        <div class="table-container">
+            <div class="table-content">
+                <table>
+                    <thead>
+                        <tr>
+                            
+                            <th style="text-align:center;">Candidates Name</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                    <?php
+                      if (mysqli_num_rows($result) > 0) {
+                          while ($row = mysqli_fetch_assoc($result)) {
+                          echo "<tr> <td> <div class='candidates'>
+                          <div class='candidate' style='width:90%;'>
+                          <span class='candidate-name'>".$row['candidatename']."</span></td>
+                        
+                          </div>
             
-            </div>";
+                         </div>
+                         </tr>";
+                        }
+
                     }
-                }
-            ?>
+                         ?>
+                    </tbody>
+                           
+                    
+     </table>           
+    </div>  
     </div>
 </body>
 </html>
