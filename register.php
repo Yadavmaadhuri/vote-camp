@@ -10,13 +10,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate CRN
     if (empty(trim($_POST["crn"]))) {
-        $crn_err = "Please enter your CRN number.";
+        $crn_err = "Please enter a CRN.";
     } else {
         $crn = trim($_POST["crn"]);
-        if (!ctype_digit($crn) || strlen($crn) != 5) {
-            $crn_err = "CRN must be exactly 5 digits long.";
+        
+        // Prepare and execute query to check if CRN already exists
+        $sql = "SELECT crn FROM users WHERE crn = ?";
+        if ($stmt = $conn->prepare($sql)) {
+            $stmt->bind_param("s", $crn);
+            $stmt->execute();
+            $stmt->store_result();
+            
+            if ($stmt->num_rows > 0) {
+                $crn_err = "CRN already exists.";
+            }
+            
+            $stmt->close();
         }
     }
+    
 
     // Validate username
     if (empty(trim($_POST["username"]))) {
@@ -25,8 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = trim($_POST["username"]);
         if (strlen($username) < 3 || strlen($username) > 10) {
             $username_err = "Username must be between 3 and 10 characters long.";
+        } elseif (!preg_match("/^[a-zA-Z]+$/", $username)) {
+            $username_err = "Username must contain only alphabets.";
         }
     }
+    
 
 
     // Validate password
@@ -59,8 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_query($conn, $sql)) {
             header('Location: index.php');
         } else {
-            // echo "ERROR: Hush! Sorry $sql. "
-            //   . mysqli_error($conn);
+            
         }
     }
 }
@@ -92,11 +106,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <span class="error"><?php echo $username_err; ?></span>
 
             <label for="password">New Password:<span style="color:red">*</span></label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password"  required>
             <span class="error"><?php echo $password_err; ?></span>
 
             <label for="confirm_password">Confirm Password:<span style="color:red">*</span></label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
+            <input type="password" id="confirm_password" name="confirm_password"  required>
             <span class="error"><?php echo $confirmpassword_err; ?></span>
 
             <button type="submit" class="register-btn" value="Register">Register</button><br>

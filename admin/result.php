@@ -1,7 +1,8 @@
 <?php
+session_start();
+
 $title = "Results";
 include_once '../config/database.php';
-//require_once 'config/database.php';
 
 $sql = "SELECT * FROM candidates";
 $collection = mysqli_query($conn, $sql);
@@ -23,6 +24,7 @@ if ($collection) {
             if ($vote_count > $max_votes) {
                 $max_votes = $vote_count;
                 $winner = $item;
+                $winner['votes'] = $vote_count; // Add vote count to the winner array
             }
         } else {
             echo "Error: " . mysqli_error($conn) . "<br>";
@@ -30,6 +32,8 @@ if ($collection) {
     }
 
     if ($winner) {
+        // Store winner information in session
+        $_SESSION['winner'] = $winner;
         echo "<br>Candidate with Maximum Votes:<br>";
         echo "Candidate ID: " . $winner['cid'] . " - Name: " . $winner['candidatename'] . " - Total Votes: $max_votes";
     } else {
