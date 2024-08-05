@@ -1,5 +1,14 @@
 
 <?php
+session_start();
+$sid = $_SESSION['sid'];
+
+if (!isset($_SESSION['sid'])) {
+    header("location: adminlogin.php");
+}
+?>
+
+<?php
 include_once '../config/database.php';
 $sql = "SELECT * FROM candidates";
 $result = mysqli_query($conn, $sql);
