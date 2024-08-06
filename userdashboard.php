@@ -25,6 +25,13 @@ $result = mysqli_query($conn, $sql);
        <?php include 'header.php'; ?>
         <h1>Vote Here</h1>
 
+    <?php 
+    $sql = "SELECT * FROM vote_status WHERE status = 'T'";
+    $sresults = mysqli_query($conn, $sql); 
+    $scount = mysqli_num_rows($sresults);
+    if ($scount > 0) {
+?>
+
         <div class="table-container">
             <div class="table-content">
                 <table>
@@ -69,8 +76,13 @@ $result = mysqli_query($conn, $sql);
                 </table>
             </div>
         </div>
-    </div>
+        <?php 
+    }else{
+?>
+<h1 style="margin:1px 0px;text-align: center;padding:10rem; background-color:#E2E7E6;">VOTING NOT STARTED</h1>
+
+</div>
     
-<?php include 'footer.php'; ?>
+<?php } include 'footer.php'; ?>
 </body>
 </html>

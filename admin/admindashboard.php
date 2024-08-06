@@ -31,6 +31,31 @@ $result = mysqli_query($conn, $sql);
                     <thead>
                         <tr>
                             <th style="text-align:center;">Candidate's Name</th>
+                            <!-- Vote start and End button -->
+                            <?php 
+                             $sql = "SELECT * FROM vote_status WHERE status = 'T'";
+                                 $sresults = mysqli_query($conn, $sql); 
+                                 $scount = mysqli_num_rows($sresults);
+                                if ($scount > 0) {
+                                ?>  
+                                <form action="end.php" method="POST" style="margin-left: auto;">
+                                <button type="submit" name="endvote" class="delete-button" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                                End Vote
+                                </button>
+                                </form>
+                             <?php 
+                            } else {     
+                                      ?>  
+                                  <form action="start.php" method="POST" style="margin-left: auto;">
+                                  <button type="submit" name="startvote" class="delete-button" style="background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                                 Start Vote
+                               </button>
+                                </form>
+                               <?php 
+        } 
+        ?>
+
+
                         </tr>
                     </thead>
                     <tbody>

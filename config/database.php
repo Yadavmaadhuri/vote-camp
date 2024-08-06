@@ -90,3 +90,18 @@ if (mysqli_query($conn, $sql)) {
 } else {
     echo "Error creating 'candidates' table: " . mysqli_error($conn);
 }
+
+
+//vote_state table
+$sql = "CREATE TABLE IF NOT EXISTS vote_status(
+    vote_state_id INT PRIMARY KEY AUTO_INCREMENT,
+    status VARCHAR(1) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )";
+
+if (mysqli_query($conn, $sql)) {
+    //echo "Table Created Successfully.";
+} else {
+    echo "<br>";
+    echo "Error Creating table" . mysqli_error($conn);
+}

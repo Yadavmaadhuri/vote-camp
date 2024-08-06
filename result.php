@@ -34,7 +34,7 @@ if ($collection) {
         echo "<br>Candidate with Maximum Votes:<br>";
         echo  $winner['candidatename'];
     } else {
-        echo "No votes found.";
+        echo "Winner not declared yet!";
     }
 } else {
     echo "Error: " . mysqli_error($conn)."<br>";
