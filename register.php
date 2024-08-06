@@ -11,23 +11,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate CRN
     if (empty(trim($_POST["crn"]))) {
         $crn_err = "Please enter a CRN.";
+        
     } else {
         $crn = trim($_POST["crn"]);
-        
-        // Prepare and execute query to check if CRN already exists
-        $sql = "SELECT crn FROM users WHERE crn = ?";
-        if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("s", $crn);
-            $stmt->execute();
-            $stmt->store_result();
-            
-            if ($stmt->num_rows > 0) {
-                $crn_err = "CRN already exists.";
+        if (!is_numeric($crn) || strlen($crn) != 5) {
+            $crn_err = "CRN must be exactly 5 digits.";
+
+        } else {
+            // Prepare and execute query to check if CRN already exists
+            $sql = "SELECT crn FROM users WHERE crn = ?";
+            if ($stmt = $conn->prepare($sql)) {
+                $stmt->bind_param("s", $crn);
+                $stmt->execute();
+                $stmt->store_result();
+                
+                if ($stmt->num_rows > 0) {
+                    $crn_err = "CRN already exists.";
+                }
+                
+                $stmt->close();
             }
-            
-            $stmt->close();
         }
     }
+
     
 
     // Validate username
@@ -35,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username_err = "Please enter a username.";
     } else {
         $username = trim($_POST["username"]);
-        if (strlen($username) < 3 || strlen($username) > 10) {
+        if (strlen($username) < 3 || strlen($username) > 15) {
             $username_err = "Username must be between 3 and 10 characters long.";
         } elseif (!preg_match("/^[a-zA-Z]+$/", $username)) {
             $username_err = "Username must contain only alphabets.";

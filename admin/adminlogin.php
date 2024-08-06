@@ -1,21 +1,23 @@
 <?php
+session_start();
 require_once('../config/database.php');
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-  
-    $username = stripcslashes($_POST['username']);
-    $password = $_POST['password'];
-  
-    $sql = "select * from sadmin where adminusername = '$username' and adminpassword = '$password'";
-    
-    $sresult = mysqli_query($conn,$sql);
-    
-    $scount = mysqli_num_rows($sresult);
-  
-    if($scount == 1){
-       
-            $_SESSION['uid'] = 1;
-            header("Location: admindashboard.php");
 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    
+    $sql = "SELECT * FROM sadmin WHERE adminusername = ? AND adminpassword = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if($result->num_rows == 1){
+        $_SESSION['uid'] = 1;
+        header("Location: admindashboard.php");
+        exit();
+    } else {
+        echo "Invalid username or password.";
     }
 }
 ?>
@@ -30,15 +32,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form action="" method="post">
-            <label for="username">username:</label>
+        <form action="adminlogin.php" method="post">
+            <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            
-          
             <button type="submit" class="Login-btn">Login</button>
-            
         </form>
     </div>
 </body>  

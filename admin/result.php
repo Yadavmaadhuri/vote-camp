@@ -1,7 +1,7 @@
 <?php
 $title = "Results";
 include_once '../config/database.php';
-//require_once 'config/database.php';
+include 'aheader.php'; 
 
 $sql = "SELECT * FROM candidates";
 $collection = mysqli_query($conn, $sql);
@@ -38,3 +38,4 @@ if ($collection) {
 } else {
     echo "Error: " . mysqli_error($conn)."<br>";
 }
+ include 'afooter.php'; 

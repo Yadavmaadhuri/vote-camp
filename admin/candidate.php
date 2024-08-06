@@ -30,6 +30,7 @@ $id=$_POST['id'];
     <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
+<?php include 'aheader.php'; ?>
 <form action="" method="post">
 <label for="username">username:</label>
 <input type="text" id="candidatename" name="candidatename" required>
@@ -37,5 +38,6 @@ $id=$_POST['id'];
 <input type="number" id="id" name="id" required>
 <input type="submit" value="submit">
 </form>
+<?php include 'afooter.php'; ?>
 </body>
 </html>

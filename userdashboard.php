@@ -16,21 +16,13 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashboard</title>
-    <link rel="stylesheet" href='assets/styles.css'>
-
-
-        
+    <link rel="stylesheet" href='assets/styles.css'> 
+    
 </head>
 <body>
-    <div class="udcontainer">
-        <nav class="navbar">
-            <ul>
-                <li><a href="userdashboard.php">Home</a></li>
-                <li><a href="result.php">Result</a></li>
-                <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </nav>
-
+    
+           
+       <?php include 'header.php'; ?>
         <h1>Vote Here</h1>
 
         <div class="table-container">
@@ -78,5 +70,7 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div>
     </div>
+    
+<?php include 'footer.php'; ?>
 </body>
 </html>
