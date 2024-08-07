@@ -38,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <a href="../index.php" class="signin-btn">Signin as User</a>
         </nav>   
     <div class="container">
-        <h2>Login</h2>
+        <h2> Admin Login</h2>
         <form action="adminlogin.php" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>

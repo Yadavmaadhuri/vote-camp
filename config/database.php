@@ -55,7 +55,7 @@ if (mysqli_query($conn, $sql)) {
 }
 
 // Insert default admin user (INSERT IGNORE ensures no duplicate entry if it already exists)
-$sql = "INSERT IGNORE INTO sadmin (sid, adminusername, adminpassword) VALUES (101, 'admin@gmail.com', 'admin123')";
+$sql = "INSERT IGNORE INTO sadmin (sid, adminusername, adminpassword) VALUES (1,'admin123', 'admin123')";
 if (mysqli_query($conn, $sql)) {
     // echo "Admin user inserted successfully.";
 } else {

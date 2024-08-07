@@ -39,7 +39,7 @@ $result = mysqli_query($conn, $sql);
                                 if ($scount > 0) {
                                 ?>  
                                 <form action="end.php" method="POST" style="margin-left: auto;">
-                                <button type="submit" name="endvote" class="delete-button" style="background-color: red; color: white; padding: 10px 20px; border: none;align-items: center;  border-radius: 5px; cursor: pointer;">
+                                <button type="submit" name="endvote" class="delete-button" style="background-color: red; color: white; padding: 10px 50px; border: none;align-items: center;  border-radius: 5px; cursor: pointer;">
                                 End Vote
                                 </button>
                                 </form>
@@ -47,7 +47,7 @@ $result = mysqli_query($conn, $sql);
                             } else {     
                                       ?>  
                                   <form action="start.php" method="POST" style="margin-left: auto;">
-                                  <button type="submit" name="startvote" class="delete-button" style="background-color: blue; color: white; padding: 10px 20px; align-items: center; border: none; border-radius: 5px; cursor: pointer;">
+                                  <button type="submit" name="startvote" class="delete-button" style="background-color: blue; color: white; padding: 10px 50px; align-items: center; border: none; border-radius: 5px; cursor: pointer;">
                                  Start Vote Now
                                </button>
                                 </form>
