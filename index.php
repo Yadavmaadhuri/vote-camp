@@ -36,7 +36,7 @@ else {
 </head>
 <body>
     <div class="left-side">
-        <img src="assets/leftside.jpg" alt="Image">
+        <img src="assets/vote.jpg" alt="Image">
     </div>
     <div class="right-side">
         <nav>

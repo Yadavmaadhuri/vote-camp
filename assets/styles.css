@@ -20,9 +20,11 @@ body {
 
 .udcontainer {
     width: 80%;
+    max-height: fit-content;
+    min-height: fit-content;
     margin: 0 auto;
-    padding: 20px;
-    background-color:rgb(197, 197, 241);
+    padding: 0px;
+    background-color:rgb(230, 228, 238);
     
 }
 
@@ -38,19 +40,19 @@ body {
 
 .navbar li {
     display: inline;
-    margin-right: 10px;
+    margin-right: 20px;
     color:white;
     justify-content:space-between;
     padding:14px 20px;
 }
 
 .navbar li a:hover{
-    color:rgb(107, 107, 226);
+    color:whitesmoke;
 
 }
 .navbar active{
     float: right;
-    background-color: #4CAF50;
+    background-color: #af684c;
     color: white;
     border: none;
     cursor: pointer;
@@ -59,8 +61,8 @@ body {
 }
 
 .navbar .active:hover {
-    background-color: #45a049;
-}
+    background-color: #525a52;
+} 
 
   
     
@@ -128,4 +130,6 @@ tbody tr:hover {
     font-size: 16px;
 
 }
+ 
+/* all form index .css */
 
