@@ -23,7 +23,7 @@ $result = mysqli_query($conn, $sql);
 
 <?php include 'aheader.php'; ?>
 
-   
+
         <h1>Vote Here</h1>
         <div class="table-container">
             <div class="table-content">

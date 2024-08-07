@@ -31,7 +31,7 @@ $result = mysqli_query($conn, $sql);
     $scount = mysqli_num_rows($sresults);
     if ($scount > 0) {
 ?>
-
+        
         <div class="table-container">
             <div class="table-content">
                 <table>

@@ -40,7 +40,7 @@ body {
 
 .navbar li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 30px;
     color:white;
     justify-content:space-between;
     padding:14px 20px;
@@ -60,17 +60,10 @@ body {
     text-decoration: none;
 }
 
-.navbar .active:hover {
-    background-color: #525a52;
-} 
-
-  
-    
-
 .navbar li a {
     text-decoration:none; 
-    font-weight: bold;
-    color: #161515;
+    font-weight:bolder;
+    color: #0c0c0c;
     
  
 }
@@ -93,7 +86,7 @@ th , td {
 }
 
 thead {
-    background-color: #3B43D6;
+    background-color:rgb(119, 114, 116);
     color: #fff;
 }
 
@@ -131,5 +124,8 @@ tbody tr:hover {
 
 }
  
-/* all form index .css */
+
+
+
+
 
