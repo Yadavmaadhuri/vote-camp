@@ -13,10 +13,10 @@
     
     <nav class="navbar">
     <ul>
-        <li><a href="admindashboard.php">Home</a></li>
-        <li><a href="candidate.php">Add Candidate</a></li>
-        <li><a href="result.php">Vote info</a></li>
-        <li><a href="adminlogout.php">Logout</li></a>
+        <li><a href="admindashboard.php" class="active">Home</a></li>
+        <li><a href="candidate.php" class="active">Add Candidate</a></li>
+        <li><a href="result.php" class="active">Vote info</a></li>
+        <li><a href="adminlogout.php" class="active">Logout</li></a>
     </ul>
 </nav>
 

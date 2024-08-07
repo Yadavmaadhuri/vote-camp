@@ -27,9 +27,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Voting System Registration</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="../assets/index.css">
 </head>
 <body>
+<div class="left-side">
+        <img src="../assets/leftside.jpg" alt="Image">
+    </div>
+    <div class="right-side">
+        <nav>
+            <a href="index.php" class="signin-btn">Signin as User</a>
+        </nav>   
     <div class="container">
         <h2>Login</h2>
         <form action="adminlogin.php" method="post">
@@ -37,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <button type="submit" class="Login-btn">Login</button>
+            <button type="submit" class="login-btn">Login</button>
         </form>
     </div>
 </body>  

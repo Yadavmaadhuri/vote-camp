@@ -1,4 +1,7 @@
 <?php
+$currentPage = 'candidate'; // Set this to the page name
+?>
+<?php
 include '../config/database.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 $candidatename=$_POST['candidatename'];
@@ -28,6 +31,7 @@ $id=$_POST['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>candidateform</title>
     <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="../assets/header.css">
 </head>
 <body>
 <?php include 'aheader.php'; ?>

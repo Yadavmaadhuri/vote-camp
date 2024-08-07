@@ -32,7 +32,7 @@ else {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vote-Camp User Login</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/index.css">
     <!-- <script>
         function validateForm() {
             var crn = document.getElementById("crn").value;
@@ -48,16 +48,24 @@ else {
     </script> -->
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <form method="post" action="" onsubmit="return validateForm()">
-            <label for="crn">CRN Number:</label>
-            <input type="text" id="crn" name="crn" required>
-            <label for="password">Password:</label>
-            <input type="password" id="userpassword" name="userpassword" required>
-            <button type="submit" class="Login-btn">Login</button>
-            <p>Don't have an account? <a href="register.php">Sign up</a></p>
-        </form>
+    <div class="left-side">
+        <img src="assets/leftside.jpg" alt="Image">
+    </div>
+    <div class="right-side">
+        <nav>
+            <a href="admin/adminlogin.php" class="signin-btn">Signin as Admin</a>
+        </nav>
+        <div class="container">
+            <h2>Login</h2>
+            <form method="post" action="" onsubmit="return validateForm()">
+                <label for="crn">CRN Number:</label>
+                <input type="text" id="crn" name="crn" required>
+                <label for="password">Password:</label>
+                <input type="password" id="userpassword" name="userpassword" required>
+                <button type="submit" class="login-btn">Login</button>
+                <p>Don't have an account? <a href="register.php">SignUp</a></p>
+            </form>
+        </div>
     </div>
 </body>
 </html>

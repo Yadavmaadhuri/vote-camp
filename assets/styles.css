@@ -7,102 +7,13 @@ body, h2, h6, form, input, button {
 
 /* Apply a background color to the entire page */
 body {
-    font-family: Arial, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background:rgb(174, 174, 199);
     margin: 0;
     height: 50vh;
     display: flex;
     justify-content:center /* Align form to the right side */
 }
-
-/* Container styling */
-.container {
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    width: 50vw; /* Takes half of the screen width */
-    height: fit-content;
-    max-width:400px; /* Maximum width for larger screens */
-}
-
-
-/* Heading styling */
-h2 {
-    color: #333;
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Form label styling */
-label {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 5px;
-    display: block;
-}
-
-/* Input fields styling */
-input[type="text"], input[type="password"],  input[type="number"], select {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-/* Button styling */
-button.Login-btn {
-    background: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    display: inline-block;
-    text-align: center;
-}
-
-button.Login-btn:hover {
-    background: #45a049;
-}
-
-/* Link and register button styling */
-h6 {
-    text-align: center;
-    font-size: 14px;
-    color: #666;
-    margin-top: 15px;
-}
-
-h6 a {
-    text-decoration: none;
-}
-
-button.register-btn {
-    background: #f8f9fa;
-    color: #007bff;
-    border: 1px solid #007bff;
-    border-radius: 4px;
-    padding: 10px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    display: inline-block;
-    text-align: center;
-}
-
-button.register-btn:hover {
-    background: #007bff;
-    color: #fff;
-}
-
-
-
-
 
 /* for dashboard */
 /*  */
@@ -122,6 +33,7 @@ button.register-btn:hover {
  
     
     
+
 }
 
 .navbar li {
@@ -129,14 +41,27 @@ button.register-btn:hover {
     margin-right: 10px;
     color:white;
     justify-content:space-between;
-    padding-left: 6rem;
+    padding:14px 20px;
 }
 
 .navbar li a:hover{
     color:rgb(107, 107, 226);
 
 }
-     
+.navbar active{
+    float: right;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar .active:hover {
+    background-color: #45a049;
+}
+
   
     
 

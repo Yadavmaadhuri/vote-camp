@@ -92,35 +92,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vote-camp</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/index.css">
     <style>
         .error { color: red; }
     </style>
 </head>
 <body>
-
+<div class="left-side">
+        <img src="assets/leftside.jpg" alt="Image">
+    </div>
+    <div class="right-side">
+        <nav>
+            <a href="admin/adminlogin.php" class="signin-btn">Signin as Admin</a>
+        </nav>
+    
     <div class="container">
-        <h2>Register</h2>
-       
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
-            <label for="crn">CRN Number:<span style="color:red">*</span></label>
-            <input type="number" id="crn" name="crn" required>
-            <span class="error"><?php echo $crn_err; ?></span>
+            <h2>Register</h2>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+                <label for="crn">CRN Number:<span style="color:red">*</span></label>
+                <input type="number" id="crn" name="crn" required>
+                <span class="error"><?php echo $crn_err; ?></span>
 
-            <label for="username">Username:<span style="color:red">*</span></label>
-            <input type="text" id="username" name="username" required>
-            <span class="error"><?php echo $username_err; ?></span>
+                <label for="username">Username:<span style="color:red">*</span></label>
+                <input type="text" id="username" name="username" required>
+                <span class="error"><?php echo $username_err; ?></span>
 
-            <label for="password">New Password:<span style="color:red">*</span></label>
-            <input type="password" id="password" name="password"  required>
-            <span class="error"><?php echo $password_err; ?></span>
+                <label for="password">New Password:<span style="color:red">*</span></label>
+                <input type="password" id="password" name="password" required>
+                <span class="error"><?php echo $password_err; ?></span>
 
-            <label for="confirm_password">Confirm Password:<span style="color:red">*</span></label>
-            <input type="password" id="confirm_password" name="confirm_password"  required>
-            <span class="error"><?php echo $confirmpassword_err; ?></span>
+                <label for="confirm_password">Confirm Password:<span style="color:red">*</span></label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+                <span class="error"><?php echo $confirmpassword_err; ?></span>
 
-            <button type="submit" class="register-btn" value="Register">Register</button><br>
-            <h6>already have an account? <a href="index.php"><input type="button" class="Login-btn" value="sign in"></a></h6>
+                <button type="submit" class="register-btn" value="Register">Register</button><br>
+                <p>Already have an account? <a href="index.php">SignIn</a></p>
+           
         </form>
     </div>
 </body>
