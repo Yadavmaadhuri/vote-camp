@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     </div>
     <div class="right-side">
         <nav>
-            <a href="index.php" class="signin-btn">Signin as User</a>
+            <a href="../index.php" class="signin-btn">Signin as User</a>
         </nav>   
     <div class="container">
         <h2>Login</h2>
