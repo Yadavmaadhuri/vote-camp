@@ -34,6 +34,8 @@ if ($conn === false) {
 $sql = "CREATE TABLE IF NOT EXISTS users(
     crn INT PRIMARY KEY NOT NULL,
     username VARCHAR(30) NOT NULL,
+    batch YEAR NOT NULL,                     -- Batch year (e.g., 2078, 2079, 2080)
+    faculty VARCHAR(50) NOT NULL,
     userpassword VARCHAR(255) NOT NULL
 )";
 if (mysqli_query($conn, $sql)) {
@@ -65,8 +67,9 @@ if (mysqli_query($conn, $sql)) {
 // Create table for candidates
 $sql = "CREATE TABLE IF NOT EXISTS candidates(
     cid INT PRIMARY KEY ,
-    candidatename VARCHAR(30) NOT NULL
-    
+    candidatename VARCHAR(30) NOT NULL,
+    batch INT NOT NULL,
+    faculty VARCHAR(30) NOT NULL 
 )";
 if (mysqli_query($conn, $sql)) {
     // echo "Table 'candidates' created successfully.";

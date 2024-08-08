@@ -15,23 +15,6 @@ if ($check->num_rows > 0) {
 }
 }
 
-// if (mysqli_num_rows($check)>0){
-//    // $userdata= mysqli_fetch_array($check);
-//     $_SESSION['crn']=$crn;
-    
-
-//     echo '
-//     <script>
-//     window.location = "userdashboard.php" </script>';
-// }
-// else {
-//     echo '<script> 
-   
-//     alert("Invalid Credentials")
-//     </script>';
-// }
-// }
-
 
 ?>
 

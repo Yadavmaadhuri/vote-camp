@@ -2,8 +2,8 @@
 include 'config/database.php';
 
 // Define variables and initialize with empty values
-$crn = $username  = $password = $confirm_password = "";
-$crn_err = $username_err  = $password_err = $confirmpassword_err = "";
+$crn = $username  = $password =  $batch = $faculty = $confirm_password = "";
+$crn_err = $username_err  = $batch_err = $faculty_err = $password_err = $confirmpassword_err = "";
 
 // Process form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -47,7 +47,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $username_err = "Username must contain only alphabets.";
         }
     }
-    
+    // Validate batch
+    if (empty($_POST["batch"])) {
+        $batch_err = "Please select a batch.";
+    } else {
+        $batch = $_POST["batch"];
+        if (!in_array($batch, ["2078", "2079", "2080"])) {
+            $batch_err = "Invalid batch selected.";
+        }
+    }
+
+    // Validate faculty
+    if (empty($_POST["faculty"])) {
+        $faculty_err = "Please select a faculty.";
+    } else {
+        $faculty = $_POST["faculty"];
+        $valid_faculties = ["BBS", "BIM", "BCA", "B.SC CSIT", "BHM"];
+        if (!in_array($faculty, $valid_faculties)) {
+            $faculty_err = "Invalid faculty selected.";
+        }
+    }
+
+    // Validate password
+    if (empty(trim($_POST["password"]))) {
+        $password_err = "Please enter a password.";
+    } elseif (strlen(trim($_POST["password"])) < 4) {
+        $password_err = "Password must have at least 4 characters.";
+    } else {
+        $password = trim($_POST["password"]);
+    }
+
+    // Validate confirm password
+    if (empty(trim($_POST["confirm_password"]))) {
+        $confirmpassword_err = "Please confirm password.";
+    } else {
+        $confirm_password = trim($_POST["confirm_password"]);
+        if (empty($password_err) && ($password != $confirm_password)) {
+            $confirmpassword_err = "Password did not match.";
+        }
+    }
+
 
 
     // Validate password
@@ -70,12 +109,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Check for errors before inserting in database
-    if (empty($crn_err) && empty($username_err)  && empty($password_err) && empty($confirmpassword_err)) {
+    if (empty($crn_err) && empty($username_err) && empty($batch_err) && empty($faculty_err)  && empty($password_err) && empty($confirmpassword_err)) {
         $crn = $_POST['crn'];
         $username = $_POST['username'];
         $userpassword = $_POST['password'];
+        $batch= $_POST['batch'];
+        $faculty=$_POST['faculty'];
 
-        $sql = "INSERT INTO users VALUES ('$crn','$username','$userpassword')";
+        $sql = "INSERT INTO users VALUES ('$crn','$username','$batch','$faculty', '$userpassword')";
 
         if (mysqli_query($conn, $sql)) {
             header('Location: index.php');
@@ -116,6 +157,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="username">Username:<span style="color:red">*</span></label>
                 <input type="text" id="username" name="username" required>
                 <span class="error"><?php echo $username_err; ?></span>
+
+                <label for="batch">Batch:</label>
+                <select name="batch" id="batch" required>
+                   <option value="2078">2078</option>
+                   <option value="2079">2079</option>
+                   <option value="2080">2080</option>
+                 </select>
+                 <span class="error"><?php echo $batch_err; ?></span>
+
+                <label for="faculty">Faculty:</label>
+                <select name="faculty" id="faculty" required>
+                   <option value="BBS">BBS</option>
+                   <option value="BIM">BIM</option>
+                   <option value="BCA">BCA</option>
+                   <option value="B.SC CSIT">B.SC CSIT</option>
+                   <option value="BHM">BHM</option>
+                 </select>
+                 <span class="error"><?php echo $faculty_err; ?></span>
+
+                 
 
                 <label for="password">New Password:<span style="color:red">*</span></label>
                 <input type="password" id="password" name="password" required>

@@ -72,6 +72,8 @@ $result = mysqli_query($conn, $sql);
                                         <div class='candidates'>
                                             <div class='candidate' style='width:90%;'>
                                                 <span class='candidate-name'>{$row['candidatename']}</span>
+                                                <span class='candidate-batch'>{$row['batch']}</span>
+                                                <span class='candidate-faculty'>{$row['faculty']}</span>
                                             </div>
                                         </div>
                                     </td>

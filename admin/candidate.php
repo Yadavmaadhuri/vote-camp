@@ -14,6 +14,9 @@ include '../config/database.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $candidatename = $_POST['candidatename'];
     $id = $_POST['id'];
+    $batch=$_POST['batch'];
+    $faculty=$_POST['faculty'];
+
 
     // Check if the candidate ID already exists
     $checkSql = "SELECT * FROM candidates WHERE cid='$id'";
@@ -24,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $error_message = "Error: The Candidate ID $id is already taken. Please choose a different ID.";
     } else {
         // If the ID is unique, insert the new candidate
-        $sql = "INSERT INTO candidates(candidatename, cid) VALUES ('$candidatename', '$id')";
+        $sql = "INSERT INTO candidates(candidatename, cid, batch, faculty ) VALUES ('$candidatename', '$id', '$batch', '$faculty')";
 
         if (mysqli_query($conn, $sql)) {
             header("Location: admindashboard.php");
@@ -66,6 +69,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <input type="text" id="candidatename" name="candidatename" required>
         <label for="id">Candidate ID:</label>
         <input type="number" id="id" name="id" required>
+        <label for="batch">Batch:</label>
+                <select name="batch" id="batch" required>
+                   <option value="2078">2078</option>
+                   <option value="2079">2079</option>
+                   <option value="2080">2080</option>
+                 </select>
+
+                <label for="faculty">Faculty:</label>
+                <select name="faculty" id="faculty" required>
+                   <option value="BBS">BBS</option>
+                   <option value="BIM">BIM</option>
+                   <option value="BCA">BCA</option>
+                   <option value="B.SC CSIT">B.SC CSIT</option>
+                   <option value="BHM">BHM</option>
+                 </select>
+
         <input type="submit" value="Submit">
     </form>
 </div>

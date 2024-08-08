@@ -149,13 +149,15 @@ table td {
 
 .candidate-form input[type="text"],
 .candidate-form input[type="number"],
-.candidate-form input[type="submit"] {
+.candidate-form input[type="submit"],
+.candidate-form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 
 .candidate-form input[type="submit"] {
     background-color: blue;

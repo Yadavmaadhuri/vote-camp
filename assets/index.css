@@ -78,6 +78,8 @@ nav .signin-btn:hover {
     text-align: left;
 }
 
+
+
 .container input {
     width: 100%;
     padding: 10px;
@@ -85,6 +87,9 @@ nav .signin-btn:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+
+
 
 .login-btn {
     background-color: blue;
