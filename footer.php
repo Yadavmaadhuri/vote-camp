@@ -6,7 +6,7 @@
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 0px;
             position: fixed;
             left: 0;
             bottom: 0;

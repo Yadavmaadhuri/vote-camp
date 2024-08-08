@@ -1,7 +1,14 @@
 <?php
+session_start();
+$crn = $_SESSION['crn'];
+
+if (!isset($_SESSION['crn'])) {
+    header("location: index.php");
+}
 $title = "Results";
 include_once 'config/database.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +57,7 @@ include_once 'config/database.php';
                 }
 
                 if ($winner) {
-                    echo "<div class='winner'><strong>Candidate with Maximum Votes:</strong><br>" . $winner['candidatename'] . "</div>";
+                    echo "<div class='winner'><strong>Candidate with Maximum Votes till now is:</strong><br>" . $winner['candidatename'] . "</div>";
                 } else {
                     echo "<div class='error'>Winner not declared yet!</div>";
                 }

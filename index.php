@@ -6,21 +6,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $crn=$_POST['crn'];
 $userpassword=$_POST['userpassword'];
 $check = mysqli_query($conn,"SELECT * FROM users WHERE crn='$crn' AND userpassword='$userpassword'");
+if ($check->num_rows > 0) {
+    $_SESSION['crn'] = $crn;
+    header("Location: userdashboard.php");
+    exit();
+} else {
+    $error_message = "Invalid Credentials";
+}
+}
 
-if (mysqli_num_rows($check)>0){
-   // $userdata= mysqli_fetch_array($check);
-    $_SESSION['crn']=$crn;
+// if (mysqli_num_rows($check)>0){
+//    // $userdata= mysqli_fetch_array($check);
+//     $_SESSION['crn']=$crn;
+    
 
-    echo '
-    <script>
-    window.location = "userdashboard.php" </script>';
-}
-else {
-    echo '<script> 
-    alert("Invalid Credentials")
-    </script>';
-}
-}
+//     echo '
+//     <script>
+//     window.location = "userdashboard.php" </script>';
+// }
+// else {
+//     echo '<script> 
+   
+//     alert("Invalid Credentials")
+//     </script>';
+// }
+// }
 
 
 ?>
@@ -44,6 +54,13 @@ else {
         </nav>
         <div class="container">
             <h2>User Login</h2>
+
+            <?php
+            if (!empty($error_message)) {
+                echo '<div class="error-message" style="color:red;">' . $error_message . '</div>';
+            }
+            ?>
+            
             <form method="post" action="" onsubmit="return validateForm()">
                 <label for="crn">CRN Number:</label>
                 <input type="text" id="crn" name="crn" required>

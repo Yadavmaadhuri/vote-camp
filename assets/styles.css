@@ -22,10 +22,10 @@ body {
 
 .navbar ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin:0;
+    padding:0;
     display: flex;
-    gap: 0px; /* Space between the nav items */
+    gap: 80px; /* Space between the nav items */
 }
 
 .navbar ul li {
@@ -34,6 +34,7 @@ body {
 
 .navbar ul li a {
     text-decoration: none;
+    margin:30;
     color: black;
     padding: 20px 15px;
     border-radius: 0px;

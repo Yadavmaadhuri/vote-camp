@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['uid'])) {
+    header("Location: adminlogin.php");
+    exit();
+}
 $title = "Results";
 include_once '../config/database.php';
 ?>
@@ -36,19 +42,22 @@ include_once '../config/database.php';
 
                 while ($item = mysqli_fetch_assoc($collection)) {
                     $cid = $item['cid'];
+                    $candidatename=$item['candidatename'];
                     $vote_sql = "SELECT COUNT(*) as count FROM votes WHERE cid = $cid";
                     $total_vote_result = mysqli_query($conn, $vote_sql);
 
                     if ($total_vote_result) {
                         $total_vote = mysqli_fetch_assoc($total_vote_result);
                         $vote_count = $total_vote['count'];
-                        echo "<div class='candidate'><strong>Candidate ID: $cid</strong> 
+                        echo "<div class='candidate'><strong>Candidate ID: $cid Candidate Name: $candidatename</strong> 
                         <br/>Total Votes: $vote_count</div>";
+                     
 
-                        if ($vote_count > $max_votes) {
+                        if ($vote_count > $max_votes ) {
                             $max_votes = $vote_count;
                             $winner = $item;
                         }
+                        
                     } else {
                         echo "<div class='error'>Error: " . mysqli_error($conn) . "</div>";
                     }
