@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <div class="left-side">
-        <img src="assets/leftside.jpg" alt="Image">
+        <img src="assets/vote1.jpg" alt="Image">
     </div>
     <div class="right-side">
         <nav>
