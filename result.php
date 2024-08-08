@@ -1,7 +1,6 @@
 <?php
 $title = "Results";
 include_once 'config/database.php';
-include 'header.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,58 +8,18 @@ include 'header.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .candidate-list {
-            margin-top: 20px;
-        }
-        .candidate {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .candidate:last-child {
-            border-bottom: none;
-        }
-        .candidate strong {
-            display: block;
-            font-size: 1.2em;
-            color: #333;
-        }
-        .winner {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            border-radius: 5px;
-        }
-        .error {
-            color: #d9534f;
-            background-color: #f2dede;
-            border: 1px solid #ebccd1;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href='assets/styles.css'> 
 </head>
 <body>
+<div class="udcontainer">
+        <nav class="navbar">
+            <ul>
+                <li><a href="userdashboard.php">Home</a></li>
+                <li><a href="result.php" class="active">Result</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
     <div class="container">
         <h1>Election Results</h1>
         <div class="candidate-list">

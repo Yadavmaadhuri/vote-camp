@@ -15,16 +15,21 @@ $result = mysqli_query($conn, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboard</title>
+    <title>dashboard</title>~
     <link rel="stylesheet" href='assets/styles.css'> 
+
     
 </head>
 <body>
-    
-           
-       <?php include 'header.php'; ?>
-        <h1>Vote Here</h1>
-
+<div class="udcontainer">
+        <nav class="navbar">
+            <ul>
+                <li><a href="userdashboard.php" class="active">Home</a></li>
+                <li><a href="result.php">Result</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
     <?php 
     $sql = "SELECT * FROM vote_status WHERE status = 'T'";
     $sresults = mysqli_query($conn, $sql); 
