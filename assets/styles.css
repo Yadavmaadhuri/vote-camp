@@ -1,131 +1,213 @@
-/* Reset some default styles */
-body, h2, h6, form, input, button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Apply a background color to the entire page */
+/* Set the page background color */
 body {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background:rgb(174, 174, 199);
-    margin: 0;
-    height: 50vh;
-    display: flex;
-    justify-content:center /* Align form to the right side */
+    background-color: whitesmoke;
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Optional: Set a default font */
 }
 
-/* for dashboard */
-/*  */
-
+/* Container for navigation */
 .udcontainer {
-    width: 80%;
-    max-height: fit-content;
-    min-height: fit-content;
-    margin: 0 auto;
-    padding: 0px;
-    background-color:rgb(230, 228, 238);
-    
+    width: 100%;
+    background-color: white;
+}
+
+/* Navigation bar styling */
+.navbar {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
 }
 
 .navbar ul {
-    list-style: none;
+    list-style-type: none;
+    margin: 0;
     padding: 0;
-    text-align: center;
- 
-    
-    
-
+    display: flex;
+    gap: 0px; /* Space between the nav items */
 }
 
-.navbar li {
+.navbar ul li {
     display: inline;
-    margin-right: 30px;
-    color:white;
-    justify-content:space-between;
-    padding:14px 20px;
 }
 
-.navbar li a:hover{
-    color:whitesmoke;
-
-}
-.navbar active{
-    float: right;
-    background-color: #af684c;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 14px 20px;
+.navbar ul li a {
     text-decoration: none;
+    color: black;
+    padding: 20px 15px;
+    border-radius: 0px;
 }
 
-.navbar li a {
-    text-decoration:none; 
-    font-weight:bolder;
-    color: #0c0c0c;
-    
- 
+/* Active link styling */
+.navbar ul li a.active {
+    background-color: green;
+    color: white;
 }
 
+/* Hover effect for links */
+.navbar ul li a:hover:not(.active) {
+    background-color: lightgray;
+}
 
+/* Center the "Start Vote Now" button and position it lower */
+form {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px; /* Move the button down */
+}
+
+form button {
+    background-color: rgb(68, 213, 121);
+    color: white;
+    padding: 15px 30px;
+    font-size: 24px;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+}
+
+/* Style the "End Vote" button separately */
+form button[name="endvote"] {
+    background-color: red;
+}
+
+/* Style the table */
 .table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
+}
+
+.table-content {
+    width: 80%; /* Adjust as needed */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    border: 2px solid black; /* Thick border for the table */
 }
 
-th , td {
-    padding: 15px;
+table th {
+    background-color: rgb(249, 146, 21);
+    color: white;
+    padding: 10px;
+    border: 2px solid white; /* Thick border for the header cells */
+    text-align: center;
+}
+
+table td {
+    padding: 10px;
+    border: 2px solid white; /* Thick border for the table cells */
+    text-align: center;
+    font-size: 18px; /* Optional: Increase font size for better readability */
+    background-color: rgb(222, 219, 219);
+}
+
+.candidate-name {
+    display: block;
+    font-size: 22px;
+    margin: 10px 0;
     text-align: left;
 }
 
-thead {
-    background-color:rgb(119, 114, 116);
-    color: #fff;
+/* Form container styles */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f4f4f9;
+.candidate-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-tbody tr:hover {
-    background-color: #d4d2d2;
+.candidate-form p {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-.delete-button {
-    border: none;
-    padding: 10px 20px;
-    color: #fff;
-    cursor: pointer;
+.candidate-form label {
+    margin: 10px 0 5px;
+    width: 100%;
+    color: #333;
+}
+
+.candidate-form input[type="text"],
+.candidate-form input[type="number"],
+.candidate-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
 }
 
-.delete-button[disabled] {
-    cursor: not-allowed;
-}
- h1{
-    text-align: center;}
-
-.vote-btn{
-    border: none;
-    padding: 10px 20px;
-    background-color: #3B43D6;
-    color:white;
+.candidate-form input[type="submit"] {
+    background-color: blue;
+    color: white;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-
+    border: none;
+    transition: background-color 0.3s ease;
 }
- 
+
+.candidate-form input[type="submit"]:hover {
+    background-color: green;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .candidate-form {
+        padding: 15px;
+    }
+}
+.vote-container {
+    width: 60%;
+    margin: 50px auto;  /* Adjusted top margin for moving it down */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
 
+.candidate-list {
+    margin-top: 20px;
+}
 
+.candidate {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
 
+.candidate:last-child {
+    border-bottom: none;
+}
 
+.winner {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #dff0d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}

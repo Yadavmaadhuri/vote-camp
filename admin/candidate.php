@@ -21,9 +21,6 @@ $id=$_POST['id'];
 }
 }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,17 +28,30 @@ $id=$_POST['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>candidateform</title>
     <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="stylesheet" href="../assets/header.css">
 </head>
 <body>
-<?php include 'aheader.php'; ?>
-<form action="" method="post">
-<label for="username">username:</label>
-<input type="text" id="candidatename" name="candidatename" required>
-<label for="id">id:</label>
-<input type="number" id="id" name="id" required>
-<input type="submit" value="submit">
-</form>
-<?php include 'afooter.php'; ?>
+   
+<div class="udcontainer">
+    
+    <nav class="navbar">
+    <ul>
+        <li><a href="admindashboard.php">Home</a></li>
+        <li><a href="candidate.php"  class="active" >Add Candidate</a></li>
+        <li><a href="result.php" >Vote info</a></li>
+        <li><a href="adminlogout.php" >Logout</li></a>
+    </ul>
+</nav>
+</div>
+    <div class="form-container">
+        <form class="candidate-form" action="" method="post">
+            <p>Add Candidate</p>
+            <label for="username">Username:</label>
+            <input type="text" id="candidatename" name="candidatename" required>
+            <label for="id">Candidate ID:</label>
+            <input type="number" id="id" name="id" required>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+    <?php include 'afooter.php'; ?>
 </body>
 </html>

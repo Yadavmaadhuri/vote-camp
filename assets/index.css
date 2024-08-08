@@ -50,7 +50,7 @@ nav .signin-btn {
 }
 
 nav .signin-btn:hover {
-    background-color: darkblue;
+    background-color: green;
 }
 
 .container {
@@ -99,7 +99,7 @@ nav .signin-btn:hover {
 }
 
 .login-btn:hover {
-    background-color: darkblue;
+    background-color: green;
 }
 
 .register-btn {
@@ -115,7 +115,7 @@ nav .signin-btn:hover {
 }
 
 .register-btn:hover {
-    background-color: darkblue;
+    background-color: green;
 }
 
 .container p {

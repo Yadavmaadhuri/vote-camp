@@ -3,8 +3,8 @@
 <head>
     <style>
         .footer {
-            background-color: #333;
-            color: white;
+            background-color: white;
+            color: black;
             text-align: center;
             padding: 10px;
             position: fixed;

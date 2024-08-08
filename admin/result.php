@@ -1,7 +1,6 @@
 <?php
 $title = "Results";
 include_once '../config/database.php';
-include 'aheader.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,59 +8,22 @@ include 'aheader.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 90%;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .candidate-list {
-            margin-top: 20px;
-        }
-        .candidate {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .candidate:last-child {
-            border-bottom: none;
-        }
-        .candidate strong {
-            display: block;
-            font-size: 1.2em;
-            color: #333;
-        }
-        .winner {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            border-radius: 5px;
-        }
-        .error {
-            color: #d9534f;
-            background-color: #f2dede;
-            border: 1px solid #ebccd1;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href='../assets/styles.css'>
 </head>
 <body>
-    <div class="container">
+    
+<div class="udcontainer">
+    
+    <nav class="navbar">
+    <ul>
+        <li><a href="admindashboard.php" >Home</a></li>
+        <li><a href="candidate.php" >Add Candidate</a></li>
+        <li><a href="result.php" class="active" >Vote info</a></li>
+        <li><a href="adminlogout.php" >Logout</li></a>
+    </ul>
+</nav>
+</div>
+    <div class="vote-container">
         <h1>Election Results</h1>
         <div class="candidate-list">
             <?php
@@ -80,7 +42,8 @@ include 'aheader.php';
                     if ($total_vote_result) {
                         $total_vote = mysqli_fetch_assoc($total_vote_result);
                         $vote_count = $total_vote['count'];
-                        echo "<div class='candidate'><strong>Candidate ID: $cid</strong>Total Votes: $vote_count</div>";
+                        echo "<div class='candidate'><strong>Candidate ID: $cid</strong> 
+                        <br/>Total Votes: $vote_count</div>";
 
                         if ($vote_count > $max_votes) {
                             $max_votes = $vote_count;
