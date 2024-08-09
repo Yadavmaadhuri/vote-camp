@@ -215,7 +215,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO users VALUES ('$crn','$username','$batch','$faculty', '$userpassword')";
 
         if (mysqli_query($conn, $sql)) {
-            header('Location: index.php');
+            header('Location: login.php');
         } else {
             
         }
@@ -283,7 +283,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="error"><?php echo $confirmpassword_err; ?></span>
 
                 <button type="submit" class="register-btn" value="Register">Register</button><br>
-                <p>Already have an account? <a href="index.php">SignIn</a></p>
+                <p>Already have an account? <a href="login.php">SignIn</a></p>
            
         </form>
     </div>

@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Voting System Registration</title>
-    <link rel="stylesheet" href="../assets/index.css">
+    <link rel="stylesheet" href="../assets/login.css">
 </head>
 <body>
 <div class="left-side">
@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     </div>
     <div class="right-side">
         <nav>
-            <a href="../index.php" class="signin-btn">Signin as User</a>
+            <a href="../login.php" class="signin-btn">Signin as User</a>
         </nav>   
     <div class="container">
         <h2> Admin Login</h2>

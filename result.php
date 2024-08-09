@@ -3,7 +3,7 @@ session_start();
 $crn = $_SESSION['crn'];
 
 if (!isset($_SESSION['crn'])) {
-    header("location: index.php");
+    header("location: login.php");
     exit();
 }
 
