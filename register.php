@@ -38,89 +38,99 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate batch and faculty based on CRN
     if (empty($crn_err)) {
-        if ($crn >= 13939 && $crn <= 13970) {
-            if ($batch !== "2080" || $faculty !== "BIM") {
+
+        // for BIM
+
+        if ($crn >= 13939 && $crn <= 13960) {
+            if ($batch !== "2078" || $faculty !== "BIM") {
                 $batch_err = "Invalid batch or faculty for the given CRN.";
-                $faculty_err = "You can only select Batch 2080 and Faculty BIM.";
+                $faculty_err = "You can only select Batch 2078 and Faculty BIM.";
         
-        }elseif ($crn >= 13909 && $crn <= 13940) {
+        }elseif ($crn >= 13961 && $crn <= 13980) {
                 if ($batch !== "2079" || $faculty !== "BIM") {
                     $batch_err = "Invalid batch or faculty for the given CRN.";
                     $faculty_err = "You can only select Batch 2079 and Faculty BIM.";
                 }
                         
-         }elseif ($crn >= 13879 && $crn <= 13910) {
-                if ($batch !== "2078" || $faculty !== "BIM") {
+         }elseif ($crn >= 13981 && $crn <= 13999) {
+                if ($batch !== "2080" || $faculty !== "BIM") {
                     $batch_err = "Invalid batch or faculty for the given CRN.";
-                    $faculty_err = "You can only select Batch 2078 and Faculty BIM.";
+                    $faculty_err = "You can only select Batch 2080 and Faculty BIM.";
                 }
-            // for bca
-        
+
+
+
+            // for BCA
     
-        } elseif ($crn >= 14939 && $crn <= 14970) {
-            if ($batch !== "2080" || $faculty !== "BCA") {
-                $batch_err = "Invalid batch or faculty for the given CRN.";
-                $faculty_err = "You can only select Batch 2080 and Faculty BCA.";
-            }
-        } elseif ($crn >= 14909 && $crn <= 14940) {
-            if ($batch !== "2079" || $faculty !== "BCA") {
-                $batch_err = "Invalid batch or faculty for the given CRN.";
-                $faculty_err = "You can only select Batch 2079 and Faculty BCA.";
-            }
-        } elseif ($crn >= 14879 && $crn <= 14910) {
+        } elseif ($crn >= 14939 && $crn <= 14960) {
             if ($batch !== "2078" || $faculty !== "BCA") {
                 $batch_err = "Invalid batch or faculty for the given CRN.";
                 $faculty_err = "You can only select Batch 2078 and Faculty BCA.";
             }
+        } elseif ($crn >= 14961 && $crn <= 14980) {
+            if ($batch !== "2079" || $faculty !== "BCA") {
+                $batch_err = "Invalid batch or faculty for the given CRN.";
+                $faculty_err = "You can only select Batch 2079 and Faculty BCA.";
+            }
+        } elseif ($crn >= 14981 && $crn <= 14999) {
+            if ($batch !== "2080" || $faculty !== "BCA") {
+                $batch_err = "Invalid batch or faculty for the given CRN.";
+                $faculty_err = "You can only select Batch 2080 and Faculty BCA.";
+            }
+
+
 
         //     // for bs.csit
-        } elseif ($crn >= 15939 && $crn <= 15970) {
-            if ($batch !== "2080" || $faculty !== "BSCCSIT") {
+
+
+
+        } elseif ($crn >= 15939 && $crn <= 15960) {
+            if ($batch !== "2078" || $faculty !== "BSCCSIT") {
                 $batch_err = "Invalid batch or faculty for the given CRN.";
-                $faculty_err = "You can only select Batch 2080 and Faculty BSCCSIT.";
+                $faculty_err = "You can only select Batch 2078 and Faculty BSCCSIT.";
             }
-        } elseif ($crn >= 15909 && $crn <= 15940) {
+        } elseif ($crn >= 15961 && $crn <= 15980) {
             if ($batch !== "2079" || $faculty !== "BSCCSIT") {
                 $batch_err = "Invalid batch or faculty for the given CRN.";
                 $faculty_err = "You can only select Batch 2079 and Faculty BSCCSIT.";
             }
-        } elseif ($crn >= 15879 && $crn <= 15910) {
+        } elseif ($crn >= 15981 && $crn <= 15999) {
             if ($batch !== "2080" || $faculty !== "BSCCSIT") {
                 $batch_err = "Invalid batch or faculty for the given CRN.";
                 $faculty_err = "You can only select Batch 2080 and Faculty BSCCSIT.";
             }
             //     // for bHM
-        } elseif ($crn >= 16939 && $crn <= 16970) {
-            if ($batch !== "2080" || $faculty !== "BHM") {
-                $batch_err = "Invalid batch or faculty for the given CRN.";
-                $faculty_err = "You can only select Batch 2080 and Faculty BHM.";
-            }
-        } elseif ($crn >= 16909 && $crn <= 16940) {
-            if ($batch !== "2079" || $faculty !== "BHM") {
-                $batch_err = "Invalid batch or faculty for the given CRN.";
-                $faculty_err = "You can only select Batch 2080 and Faculty BHM.";
-            }
-            
-        } elseif ($crn >= 16879 && $crn <= 16910) {
+        } elseif ($crn >= 16939 && $crn <= 16960) {
             if ($batch !== "2078" || $faculty !== "BHM") {
                 $batch_err = "Invalid batch or faculty for the given CRN.";
-                $faculty_err = "You can only select Batch 2078 and FacultyBHM.";
+                $faculty_err = "You can only select Batch 2078 and Faculty BHM.";
+            }
+        } elseif ($crn >= 16961 && $crn <= 16980) {
+            if ($batch !== "2079" || $faculty !== "BHM") {
+                $batch_err = "Invalid batch or faculty for the given CRN.";
+                $faculty_err = "You can only select Batch 2078 and Faculty BHM.";
+            }
+            
+        } elseif ($crn >= 16981 && $crn <= 16999) {
+            if ($batch !== "2080" || $faculty !== "BHM") {
+                $batch_err = "Invalid batch or faculty for the given CRN.";
+                $faculty_err = "You can only select Batch 2080 and FacultyBHM.";
             }
         //    FOR BBS
-        } elseif ($crn >= 17939 && $crn <= 17970) {
-            if ($batch !== "2080" || $faculty !== "BBS") {
+        } elseif ($crn >= 17939 && $crn <= 17960) {
+            if ($batch !== "2078" || $faculty !== "BBS") {
                 $batch_err = "Invalid batch or faculty for the given CRN.";
-                $faculty_err = "You can only select Batch 2080 and Faculty BBS.";
+                $faculty_err = "You can only select Batch 2078 and Faculty BBS.";
             }
-        } elseif ($crn >= 17909 && $crn <= 17940) {
+        } elseif ($crn >= 17961 && $crn <= 17980) {
             if ($batch !== "2079" || $faculty !== "BBS") {
                 $batch_err = "Invalid batch or faculty for the given CRN.";
                 $faculty_err = "You can only select Batch 2079 and Faculty BBS.";
             }
-        } elseif ($crn >= 18079 && $crn <= 17910) {
-            if ($batch !== "2078" || $faculty !== "BBS") {
+        } elseif ($crn >= 17981 && $crn <= 17999) {
+            if ($batch !== "2080" || $faculty !== "BBS") {
                 $batch_err = "Invalid batch or faculty for the given CRN.";
-                $faculty_err = "You can only select Batch 2078 and FacultyBBS.";
+                $faculty_err = "You can only select Batch 2080 and FacultyBBS.";
             }
            
         
@@ -148,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $batch_err = "Please select a batch.";
     } else {
         $batch = $_POST["batch"];
-        if (!in_array($batch, ["2080", "2079", "2080"])) {
+        if (!in_array($batch, ["2078", "2079", "2078"])) {
             $batch_err = "Invalid batch selected.";
         }
     }
@@ -256,7 +266,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <label for="batch">Batch:</label>
                 <select name="batch" id="batch" required>
-                   <option value="2080">2080</option>
+                   <option value="2078">2078</option>
                    <option value="2079">2079</option>
                    <option value="2078">2078</option>
                  </select>
