@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $error_message = "Error: The Candidate ID $id is already taken. Please choose a different ID.";
     } else {
         // If the ID is unique, insert the new candidate
-        $sql = "INSERT INTO candidates(candidatename, cid, batch, faculty ) VALUES ('$candidatename', '$id', '$batch', '$faculty')";
+        $sql = "INSERT INTO candidates( cid,candidatename, batch, faculty ) VALUES ( '$id','$candidatename', '$batch', '$faculty')";
 
         if (mysqli_query($conn, $sql)) {
             header("Location: admindashboard.php");
@@ -65,10 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             echo '<h4 class="error" style="color:red" >' . $error_message . '</h4>';
         }
         ?>
+         <label for="id">Candidate ID:</label>
+         <input type="number" id="id" name="id" required>
+
         <label for="candidatename">Candidate Name:</label>
         <input type="text" id="candidatename" name="candidatename" required>
-        <label for="id">Candidate ID:</label>
-        <input type="number" id="id" name="id" required>
+       
         <label for="batch">Batch:</label>
                 <select name="batch" id="batch" required>
                    <option value="2078">2078</option>

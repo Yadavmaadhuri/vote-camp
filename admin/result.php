@@ -25,7 +25,7 @@ include_once '../config/database.php';
         <li><a href="admindashboard.php" >Home</a></li>
         <li><a href="candidate.php" >Add Candidate</a></li>
         <li><a href="result.php" class="active" >Vote info</a></li>
-        <li><a href="adminlogout.php" >Logout</li></a>
+        <li><a href="adminlogout.php" >Logout</a></li>
     </ul>
 </nav>
 </div>
@@ -38,11 +38,11 @@ include_once '../config/database.php';
 
             if ($collection) {
                 $max_votes = 0;
-                $winner = null;
+                $winners = [];
 
                 while ($item = mysqli_fetch_assoc($collection)) {
                     $cid = $item['cid'];
-                    $candidatename=$item['candidatename'];
+                    $candidatename = $item['candidatename'];
                     $vote_sql = "SELECT COUNT(*) as count FROM votes WHERE cid = $cid";
                     $total_vote_result = mysqli_query($conn, $vote_sql);
 
@@ -51,19 +51,26 @@ include_once '../config/database.php';
                         $vote_count = $total_vote['count'];
                         echo "<div class='candidate'><strong>Candidate ID: $cid Candidate Name: $candidatename</strong> 
                         <br/>Total Votes: $vote_count</div>";
-                     
 
-                        if ($vote_count > $max_votes ) {
+                        if ($vote_count > $max_votes) {
                             $max_votes = $vote_count;
-                            $winner = $item;
+                            $winners = [$item]; // Reset winners array with current candidate
+                        } elseif ($vote_count == $max_votes) {
+                            $winners[] = $item; // Add candidate to winners array
                         }
-                        
                     } else {
                         echo "<div class='error'>Error: " . mysqli_error($conn) . "</div>";
                     }
                 }
 
-                if ($winner) {
+                if (count($winners) > 1) {
+                    echo "<div class='winner'><strong>There is a tie between the following candidates:</strong><br>";
+                    foreach ($winners as $winner) {
+                        echo "Candidate ID: " . $winner['cid'] . " - Name: " . $winner['candidatename'] . "<br>";
+                    }
+                    echo "Each has $max_votes votes.</div>";
+                } elseif (count($winners) == 1) {
+                    $winner = $winners[0];
                     echo "<div class='winner'><strong>Candidate with Maximum Votes:</strong><br>Candidate ID: " . $winner['cid'] . " - Name: " . $winner['candidatename'] . " - Total Votes: $max_votes</div>";
                 } else {
                     echo "<div class='error'>Winner not declared yet!</div>";
