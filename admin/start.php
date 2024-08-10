@@ -1,5 +1,11 @@
 
 <?php
+session_start();
+
+if (!isset($_SESSION['uid'])) {
+    header("Location: adminlogin.php");
+    exit();
+}
 
 require_once '../config/database.php';
 
