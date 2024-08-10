@@ -11,22 +11,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cid = $_POST['cid'];  // Candidate ID
     $crn = $_POST['crn'];  // User CRN
 
-    // Check if the user has already voted
-    $vote_check_sql = "SELECT * FROM votes WHERE crn = '$crn'";
-    $vote_check_result = mysqli_query($conn, $vote_check_sql);
+    // Prepare a statement to check if the user has already voted
+    $stmt = $conn->prepare("SELECT * FROM votes WHERE crn = ?");
+    $stmt->bind_param('s', $crn);
+    $stmt->execute();
+    $vote_check_result = $stmt->get_result();
 
-    if (mysqli_num_rows($vote_check_result) == 0) {
+    if ($vote_check_result->num_rows == 0) {
         // User has not voted, proceed with vote insertion
-        $sql = "INSERT INTO votes (cid, crn) VALUES ('$cid', '$crn')";
+        $stmt = $conn->prepare("INSERT INTO votes (cid, crn) VALUES (?, ?)");
+        $stmt->bind_param('ss', $cid, $crn);
 
-        if (mysqli_query($conn, $sql)) {
+        if ($stmt->execute()) {
             header("Location: userdashboard.php");
             exit();
         } else {
-            echo "Error: Could not insert vote. " . mysqli_error($conn);
+            echo "Error: Could not insert vote. " . $stmt->error;
         }
     } else {
-        echo "You have already voted.";
+        // Display 'already voted' message
+        echo '<div style="font-weight: bold; color: red; text-align: center; font-size: 50px; margin-top:20rem;">
+                You have already voted.
+                </div>';
     }
 }
-?>
+

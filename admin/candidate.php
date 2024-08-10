@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
 <div class="udcontainer">
     <nav class="navbar" style="display: flex; align-items: center;">
-        <img src="../assets/hdclogo.png" style="margin: 0; padding: 0; height: 50px;">
+        <img src="../assets/hdclogo.png" style="margin: 0; padding: 0; height: 30px;">
         <ul style="list-style-type: none; margin-left: auto; display: flex; gap: 15px;">
             <li><a href="admindashboard.php">Home</a></li>
             <li><a href="candidate.php" class="active">Add candidate</a></li>

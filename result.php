@@ -35,7 +35,7 @@ $user_faculty = $user['faculty'];
 <body>
 <div class="udcontainer">
     <nav class="navbar" style="display: flex; align-items: center;">
-        <img src="assets/hdclogo.png" style="margin: 0; padding: 0; height: 50px;">
+        <img src="assets/hdclogo.png" style="margin: 0; padding: 0; height: 30px;">
         <ul style="list-style-type: none; margin-left: auto; display: flex; gap: 15px;">
             <li><a href="userdashboard.php">Home</a></li>
             <li><a href="result.php" class="active">Result</a></li>
@@ -81,7 +81,7 @@ $user_faculty = $user['faculty'];
                 echo "Each has $max_votes votes.</div>";
             } elseif (count($winners) == 1) {
                 $winner = $winners[0];
-                echo "<div class='winner'><strong>Candidate with Maximum Votes:</strong><br>" 
+                echo "<div class='winner'><strong>Candidate with Maximum Votes till now:</strong><br>" 
                     . htmlspecialchars($winner['candidatename']) 
                     . " (Batch: " . htmlspecialchars($winner['batch']) . " - Faculty: " . htmlspecialchars($winner['faculty']) . ")"
                     . " with $max_votes votes.</div>";

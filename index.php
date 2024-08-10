@@ -12,8 +12,10 @@
 <body>
 <div class="udcontainer" style="width: 97%;">
     <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-        <img src="assets/hdclogo.png" alt="HDC Logo" style="height: 60px;">
-        <a href="login.php" style="text-align:right; text-decoration: none;margin:25px; font-size: 16px; background-color:green;padding: 20px 15px; color:white;">Login as user</a>
+        <img src="assets/hdclogo.png" alt="HDC Logo" style="height: 60px; ">
+        <h1 style="color:black;">"Shape Your Student Experience,Elect Your CR"</h1>
+        <a href="login.php" style="text-align:right; text-decoration: none; margin:25px; background-color:lightgray; font-size: 30px; padding: 20px 15px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='gray'; this.style.color='black';" onmouseout="this.style.backgroundColor='lightgray'; this.style.color='darkgreen';">click here to vote</a>
+
     </nav>
 </div>
 

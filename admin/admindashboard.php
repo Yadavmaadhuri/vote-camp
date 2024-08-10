@@ -21,7 +21,7 @@ $result = mysqli_query($conn, $sql);
 <body>
 <div class="udcontainer">
     <nav class="navbar" style="display: flex; align-items: center;">
-        <img src="../assets/hdclogo.png" style="margin: 0; padding: 0; height: 60px;">
+        <img src="../assets/hdclogo.png" style="margin: 0; padding: 0; height: 30px;">
         <ul style="list-style-type: none; margin-left: auto; display: flex;  gap: 15px;  "> 
            
             <li><a href="admindashboard.php" class="active">Home</a></li>
@@ -63,7 +63,7 @@ $result = mysqli_query($conn, $sql);
                 <table>
                     <thead>
                         <tr>
-                            <th style="text-align:center;">Candidate's Name</th>
+                            <th style="text-align:center;">Candidate's Info</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -13,6 +13,7 @@ body {
 
 /* Navigation bar styling */
 .navbar {
+    
     width: 100%;
     background-color: white;
     display: flex;
@@ -35,9 +36,9 @@ body {
 
 .navbar ul li a {
     text-decoration: none;
-    margin: 100px;
+    margin: 40px;
     color: black;
-    padding: 30px 60px;
+    padding: 10px 40px;
     border-radius: 0px;
 }
 

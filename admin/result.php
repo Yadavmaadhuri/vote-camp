@@ -21,7 +21,7 @@ include_once '../config/database.php';
     
 <div class="udcontainer">
     <nav class="navbar" style="display: flex; align-items: center;">
-        <img src="../assets/hdclogo.png" style="margin: 0; padding: 0; height: 50px;">
+        <img src="../assets/hdclogo.png" style="margin: 0; padding: 0; height: 30px;">
         <ul style="list-style-type: none; margin-left: auto; display: flex; gap: 15px;">
             <li><a href="admindashboard.php">Home</a></li>
             <li><a href="candidate.php">Add candidate</a></li>
@@ -95,7 +95,7 @@ include_once '../config/database.php';
                         echo "Each has $max_votes votes.</div>";
                     } elseif (count($winners) == 1) {
                         $winner = $winners[0];
-                        echo "<div class='winner'><strong>Candidate with Maximum Votes:</strong><br>Candidate Name: " . $winner['candidatename'] . " - Total Votes: $max_votes</div>";
+                        echo "<div class='winner'><strong>Candidate with Maximum Votes till now :</strong><br>Candidate Name: " . $winner['candidatename'] . " - Total Votes: $max_votes</div>";
                     } else {
                         echo "<div class='error'>Winner not declared yet!</div>";
                     }
