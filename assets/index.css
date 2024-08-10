@@ -242,7 +242,7 @@ body {
 
 .right-side {
     width: 50%;
-    background-color: #c5c5d1;
+    background-color:whitesmoke;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -423,12 +423,3 @@ nav .signin-btn:hover {
     text-decoration: underline;
 }
 
-
-/* additional */
-body {
-    background-image: url('himalaya-min.png');
-    background-size: cover; /* Or use 'contain' depending on your need */
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed; /* This will make the background stay fixed on scroll */
-}

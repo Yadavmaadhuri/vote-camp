@@ -32,6 +32,7 @@ if ($check->num_rows > 0) {
         <img src="assets/vote.jpg" alt="Image">
     </div>
     <div class="right-side">
+    
         <nav>
             <a href="admin/adminlogin.php" class="signin-btn">Signin as Admin</a>
         </nav>
