@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $batch_err = "Please select a batch.";
     } else {
         $batch = $_POST["batch"];
-        if (!in_array($batch, ["2078", "2079", "2078"])) {
+        if (!in_array($batch, ["2078", "2079", "2080"])) {
             $batch_err = "Invalid batch selected.";
         }
     }
@@ -168,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $faculty_err = "Please select a faculty.";
     } else {
         $faculty = $_POST["faculty"];
-        $valid_faculties = ["BBS", "BIM", "BCA", "B.SC CSIT", "BHM"];
+        $valid_faculties = [ "BIM", "BCA", "B.SC CSIT", "BHM","BBS"];
         if (!in_array($faculty, $valid_faculties)) {
             $faculty_err = "Invalid faculty selected.";
         }
@@ -268,17 +268,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <select name="batch" id="batch" required>
                    <option value="2078">2078</option>
                    <option value="2079">2079</option>
-                   <option value="2078">2078</option>
+                   <option value="2080">2080</option>
                  </select>
                  <span class="error"><?php echo $batch_err; ?></span>
 
                 <label for="faculty">Faculty:</label>
                 <select name="faculty" id="faculty" required>
-                   <option value="BBS">BBS</option>
+                  
                    <option value="BIM">BIM</option>
                    <option value="BCA">BCA</option>
                    <option value="B.SC CSIT">B.SC CSIT</option>
                    <option value="BHM">BHM</option>
+                   <option value="BBS">BBS</option>
                  </select>
                  <span class="error"><?php echo $faculty_err; ?></span>
 

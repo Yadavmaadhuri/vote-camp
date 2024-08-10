@@ -203,3 +203,13 @@ nav .signin-btn:hover {
 .button-container a:hover {
     text-decoration: underline;
 }
+
+
+/* additional */
+body {
+    background-image: url('himalaya-min.png');
+    background-size: cover; /* Or use 'contain' depending on your need */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed; /* This will make the background stay fixed on scroll */
+}
