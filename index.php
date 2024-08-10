@@ -10,14 +10,13 @@
     
 </head>
 <body>
-<div class="udcontainer">
-        <nav class="navbar" >
-            <ul >
-            
-                <li text-align=""><a href="login.php">Login as user</a></li>
-            </ul>
-        </nav>
-    </div>
+<div class="udcontainer" style="width: 97%;">
+    <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+        <img src="assets/hdclogo.png" alt="HDC Logo" style="height: 60px;">
+        <a href="login.php" style="text-align:right; text-decoration: none;margin:25px; font-size: 16px; background-color:green;">Login as user</a>
+    </nav>
+</div>
+
 
 
     <!-- About Us Section -->
@@ -32,19 +31,19 @@
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
   <img src="assets/slide.jpg" style="width:100%">
-  <div class="text"></div>
+ 
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
   <img src="assets/slide1.jpg" style="width:100%">
-  <div class="text"> Two</div>
+  
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
   <img src="assets/slide3.jpg" style="width:100%">
-  <div class="text">Caption Three</div>
+  
 </div>
 
 <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -144,12 +143,11 @@
         <section class="hdc-tieups">
             <h3>Tie-Ups & MoUs</h3>
             <div class="hdc-tieups-images">
-                <img src="tieup1.png" alt="Tie-Up 1">
-                <img src="tieup2.png" alt="Tie-Up 2">
-                <img src="tieup3.png" alt="Tie-Up 3">
-                <img src="tieup4.png" alt="Tie-Up 4">
-                <img src="tieup5.png" alt="Tie-Up 5">
-                <img src="tieup6.png" alt="Tie-Up 6">
+                <a href="https://rigohr.com/"><img src="assets/rigootech.webp" alt="rigo-technology"></a>
+                <a href="https://broadwayinfosys.com/"><img src="assets/broadways.jpg" alt="Broadway"></a>
+                <a href="https://www.labanepal.com/"><img src="assets/labanepa.jpg" alt="laba"></a>
+                <a href="https://webbank.com.np/"><img src="assets/webbankk.jpg" alt="webbank-nepal"></a>
+                <a href="https://www.volcussoft.com/"><img src="assets/volcussoftt.jpg" alt="volcussoft"></a>
             </div>
         </section>
 
@@ -157,7 +155,7 @@
         <section class="hdc-contact">
             <h3>Contact Us</h3>
             <p>Phone: 021-590471/021-590571</p>
-            <p>Website: www.himalayadarshancollege.edu.np</p>
+            <p>Website:<a href=" www.himalayadarshancollege.edu.np" style="color:#555"> www.himalayadarshancollege.edu.np</a></p>
         </section>
     </div>
     <script>

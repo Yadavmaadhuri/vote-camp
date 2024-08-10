@@ -253,7 +253,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="admin/adminlogin.php" class="signin-btn">Signin as Admin</a>
         </nav>
     
-    <div class="container">
+    <div class="reg-container">
             <h2>Register</h2>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
                 <label for="crn">CRN Number:<span style="color:red">*</span></label>
