@@ -8,7 +8,7 @@ $crn_err = $username_err  = $batch_err = $faculty_err = $password_err = $confirm
 
 
     // Process form data when form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate CRN
     if (empty(trim($_POST["crn"]))) {
@@ -39,13 +39,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate batch and faculty based on CRN
     if (empty($crn_err)) {
 
+        $batch = $_POST["batch"];
+        $faculty = $_POST["faculty"];
+
         // for BIM
 
         if ($crn >= 13939 && $crn <= 13960) {
             if ($batch !== "2078" || $faculty !== "BIM") {
                 $batch_err = "Invalid batch or faculty for the given CRN.";
                 $faculty_err = "You can only select Batch 2078 and Faculty BIM.";
-        
+            }
         }elseif ($crn >= 13961 && $crn <= 13980) {
                 if ($batch !== "2079" || $faculty !== "BIM") {
                     $batch_err = "Invalid batch or faculty for the given CRN.";
@@ -140,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $crn_err = "Invalid CRN range.";
         }
     }
-}
+
 
     // Validate username
     if (empty(trim($_POST["username"]))) {
