@@ -13,7 +13,7 @@
 <div class="udcontainer" style="width: 97%;">
     <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
         <img src="assets/hdclogo.png" alt="HDC Logo" style="height: 60px;">
-        <a href="login.php" style="text-align:right; text-decoration: none;margin:25px; font-size: 16px;">Login as user</a>
+        <a href="login.php" style="text-align:right; text-decoration: none;margin:25px; font-size: 16px; background-color:green;">Login as user</a>
     </nav>
 </div>
 
