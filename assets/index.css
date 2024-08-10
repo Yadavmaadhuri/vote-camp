@@ -237,8 +237,8 @@ body {
         text-decoration: underline;
     }
     
-    object-fit: cover; /* Ensures the image covers the container without distortion */
-}
+    /* object-fit: cover; Ensures the image covers the container without distortion */
+
 
 .right-side {
     width: 50%;
