@@ -9,6 +9,19 @@ if (!isset($_SESSION['crn'])) {
 
 $title = "Results";
 include_once 'config/database.php';
+
+// Fetch the user's batch and faculty
+$user_sql = "SELECT batch, faculty FROM users WHERE crn = '$crn'";
+$user_result = mysqli_query($conn, $user_sql);
+$user = mysqli_fetch_assoc($user_result);
+
+if (!$user) {
+    die("User not found.");
+}
+
+$user_batch = $user['batch'];
+$user_faculty = $user['faculty'];
+
 ?>
 
 <!DOCTYPE html>
@@ -25,54 +38,55 @@ include_once 'config/database.php';
         <img src="assets/hdclogo.png" style="margin: 0; padding: 0; height: 50px;">
         <ul style="list-style-type: none; margin-left: auto; display: flex; gap: 15px;">
             <li><a href="userdashboard.php">Home</a></li>
-            <li><a href="result.php"  class="active" >Result</a></li>
+            <li><a href="result.php" class="active">Result</a></li>
             <li><a href="index.php">Logout</a></li>
         </ul>
     </nav>
 </div>
 
 <div class="container">
-    <h1>Election Results</h1>
+    <h1>Election Results for Batch <?php echo htmlspecialchars($user_batch); ?> - Faculty <?php echo htmlspecialchars($user_faculty); ?></h1>
     <div class="candidate-list">
         <?php
-        $sql = "SELECT * FROM candidates";
-        $collection = mysqli_query($conn, $sql);
+        // Fetch candidates and their votes for the user's batch and faculty
+        $sql = "SELECT candidates.candidatename, candidates.cid, candidates.batch, candidates.faculty, COUNT(votes.cid) as vote_count 
+                FROM candidates 
+                LEFT JOIN votes ON candidates.cid = votes.cid 
+                WHERE candidates.batch = '$user_batch' AND candidates.faculty = '$user_faculty' 
+                GROUP BY candidates.cid 
+                ORDER BY vote_count DESC";
 
-        if ($collection) {
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
             $max_votes = 0;
             $winners = [];
 
-            while ($item = mysqli_fetch_assoc($collection)) {
-                $cid = $item['cid'];
-                $vote_sql = "SELECT COUNT(*) as count FROM votes WHERE cid = $cid";
-                $total_vote_result = mysqli_query($conn, $vote_sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                $vote_count = $row['vote_count'];
 
-                if ($total_vote_result) {
-                    $total_vote = mysqli_fetch_assoc($total_vote_result);
-                    $vote_count = $total_vote['count'];
-
-                    if ($vote_count > $max_votes) {
-                        $max_votes = $vote_count;
-                        $winners = [$item]; // Reset winners array with current candidate
-                    } elseif ($vote_count == $max_votes) {
-                        $winners[] = $item; // Add candidate to winners array
-                    }
-                } else {
-                    echo "<div class='error'>Error: " . mysqli_error($conn) . "</div>";
+                if ($vote_count > $max_votes) {
+                    $max_votes = $vote_count;
+                    $winners = [$row]; // Reset winners array with current candidate
+                } elseif ($vote_count == $max_votes) {
+                    $winners[] = $row; // Add candidate to winners array
                 }
             }
 
             if (count($winners) > 1) {
                 echo "<div class='winner'><strong>There is a tie between the following candidates:</strong><br>";
                 foreach ($winners as $winner) {
-                    echo $winner['candidatename'] . "<br>";
+                    echo htmlspecialchars($winner['candidatename']) . " (Batch: " . htmlspecialchars($winner['batch']) . " - Faculty: " . htmlspecialchars($winner['faculty']) . ")<br>";
                 }
                 echo "Each has $max_votes votes.</div>";
             } elseif (count($winners) == 1) {
                 $winner = $winners[0];
-                echo "<div class='winner'><strong>Candidate with Maximum Votes till now is:</strong><br>" . $winner['candidatename'] . "</div>";
+                echo "<div class='winner'><strong>Candidate with Maximum Votes:</strong><br>" 
+                    . htmlspecialchars($winner['candidatename']) 
+                    . " (Batch: " . htmlspecialchars($winner['batch']) . " - Faculty: " . htmlspecialchars($winner['faculty']) . ")"
+                    . " with $max_votes votes.</div>";
             } else {
-                echo "<div class='error'>Winner not declared yet!</div>";
+                echo "<div class='error'>No votes have been cast yet.</div>";
             }
         } else {
             echo "<div class='error'>Error: " . mysqli_error($conn) . "</div>";

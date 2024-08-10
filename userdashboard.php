@@ -42,7 +42,7 @@ $result = mysqli_query($conn, $sql);
         <ul style="list-style-type: none; margin-left: auto; display: flex; gap: 15px;">
             <li><a href="userdashboard.php" class="active">Home</a></li>
             <li><a href="result.php">Result</a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="index.php">Logout</a></li>
         </ul>
     </nav>
 </div>
