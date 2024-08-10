@@ -44,7 +44,7 @@ $user_faculty = $user['faculty'];
     </nav>
 </div>
 
-<div class="container">
+<div class="vote-container">
     <h1>Election Results for Batch <?php echo htmlspecialchars($user_batch); ?> - Faculty <?php echo htmlspecialchars($user_faculty); ?></h1>
     <div class="candidate-list">
         <?php
