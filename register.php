@@ -255,8 +255,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <nav>
             <a href="admin/adminlogin.php" class="signin-btn">Signin as Admin</a>
         </nav>
-    
+      
     <div class="reg-container">
+    <img src="assets/hdclogo.png">
             <h2>Register</h2>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
                 <label for="crn">CRN Number:<span style="color:red">*</span></label>

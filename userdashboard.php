@@ -1,4 +1,4 @@
-userdashboard.php 
+ 
 <?php
 session_start();
 if (!isset($_SESSION['crn'])) {
@@ -37,14 +37,16 @@ $result = mysqli_query($conn, $sql);
 </head>
 <body>
 <div class="udcontainer">
-    <nav class="navbar">
-        <ul>
+    <nav class="navbar" style="display: flex; align-items: center;">
+        <img src="assets/hdclogo.png" style="margin: 0; padding: 0; height: 50px;">
+        <ul style="list-style-type: none; margin-left: auto; display: flex; gap: 15px;">
             <li><a href="userdashboard.php" class="active">Home</a></li>
             <li><a href="result.php">Result</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
 </div>
+
 
 <?php 
 $sql = "SELECT * FROM vote_status WHERE status = 'T'";

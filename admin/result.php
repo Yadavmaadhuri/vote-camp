@@ -19,16 +19,16 @@ include_once '../config/database.php';
 <body>
     
 <div class="udcontainer">
-    
-    <nav class="navbar">
-    <ul>
-        <li><a href="admindashboard.php" >Home</a></li>
-        <li><a href="candidate.php" >Add Candidate</a></li>
-        <li><a href="result.php" class="active" >Vote info</a></li>
-        <li><a href="adminlogout.php" >Logout</a></li>
-    </ul>
-</nav>
+    <nav class="navbar" style="display: flex; align-items: center;">
+        <img src="../assets/hdclogo.png" style="margin: 0; padding: 0; height: 50px;">
+        <ul style="list-style-type: none; margin-left: auto; display: flex; gap: 15px;">
+            <li><a href="admindashboard.php">Home</a></li>
+            <li><a href="result.php" class="active">Result</a></li>
+            <li><a href="adminlogin.php">Logout</a></li>
+        </ul>
+    </nav>
 </div>
+
     <div class="vote-container">
         <h1>Election Results</h1>
         <div class="candidate-list">

@@ -18,6 +18,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px 10px;
+    
 }
 
 .navbar ul {
@@ -34,9 +35,9 @@ body {
 
 .navbar ul li a {
     text-decoration: none;
-    margin:30;
+    margin: 100px;
     color: black;
-    padding: 20px 15px;
+    padding: 30px 60px;
     border-radius: 0px;
 }
 

@@ -9,6 +9,7 @@
  <body>
  <div class="udcontainer">
         <nav class="navbar">
+        <img src="assets/hdclogo.png">
             <ul>
                 <li><a href="userdashboard.php">Home</a></li>
                 <li><a href="result.php">Result</a></li>

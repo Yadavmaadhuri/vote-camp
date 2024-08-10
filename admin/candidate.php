@@ -48,15 +48,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
 <div class="udcontainer">
-    <nav class="navbar">
-        <ul>
-            <li><a href="admindashboard.php">Home</a></li>
-            <li><a href="candidate.php" class="active">Add Candidate</a></li>
-            <li><a href="result.php">Vote info</a></li>
-            <li><a href="adminlogout.php">Logout</a></li>
+    <nav class="navbar" style="display: flex; align-items: center;">
+        <img src="../assets/hdclogo.png" style="margin: 0; padding: 0; height: 50px;">
+        <ul style="list-style-type: none; margin-left: auto; display: flex; gap: 15px;">
+            <li><a href="userdashboard.php" >Home</a></li>class="active"
+            <li><a href="candidate.php">Add candidate</a></li>
+            <li><a href="result.php">vote Info</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
 </div>
+
 <div class="form-container">
     <form class="candidate-form" action="" method="post">
         <p>Add Candidate</p>

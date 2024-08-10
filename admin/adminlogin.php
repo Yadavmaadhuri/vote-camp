@@ -36,8 +36,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <div class="right-side">
         <nav>
             <a href="../login.php" class="signin-btn">Signin as User</a>
-        </nav>   
+        </nav>  
+        
     <div class="container">
+    <img src="../assets/hdclogo.png">
         <h2> Admin Login</h2>
         <form action="adminlogin.php" method="post">
             <label for="username">Username:</label>

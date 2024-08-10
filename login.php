@@ -37,6 +37,7 @@ if ($check->num_rows > 0) {
             <a href="admin/adminlogin.php" class="signin-btn">Signin as Admin</a>
         </nav>
         <div class="container">
+        <img src="assets/hdclogo.png">
             <h2>User Login</h2>
 
             <?php
