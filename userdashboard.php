@@ -10,7 +10,7 @@ $crn = $_SESSION['crn'];
 include_once 'config/database.php';
 
 // Fetch the user's batch and faculty
-$user_sql = "SELECT username, batch, faculty FROM users WHERE crn = '$crn'";
+$user_sql = "SELECT crn,username, batch, faculty FROM users WHERE crn = '$crn'";
 $user_result = mysqli_query($conn, $user_sql);
 $user = mysqli_fetch_assoc($user_result);
 
@@ -21,6 +21,7 @@ if (!$user) {
 $user_name = $user['username'];
 $user_batch = $user['batch'];
 $user_faculty = $user['faculty'];
+$user_crn = $user['crn'];
 
 // Fetch candidates who match the user's batch and faculty
 $sql = "SELECT * FROM candidates WHERE batch = '$user_batch' AND faculty = '$user_faculty'";
@@ -50,10 +51,14 @@ $result = mysqli_query($conn, $sql);
 <div class="dashboard">
     <div class="sidebar">
         <div class="profile">
-            <h2><img src="assets/profile4.png" alt="profilelogo"></h2>
+            <h3 style="text-align:center;">Your Profile</h3>
+            <img src="assets/profile4.png" alt="profilelogo">
+           
             <p><strong>Name:</strong> <?php echo htmlspecialchars($user_name); ?></p>
+            <p><strong>Crn:</strong> <?php echo htmlspecialchars($user_crn); ?></p>
             <p><strong>Batch:</strong> <?php echo htmlspecialchars($user_batch); ?></p>
             <p><strong>Faculty:</strong> <?php echo htmlspecialchars($user_faculty); ?></p>
+            
         </div>
     </div>
 
