@@ -30,9 +30,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     } else {
         // Display 'already voted' message
+        
         echo '<div style="font-weight: bold; color: red; text-align: center; font-size: 50px; margin-top:20rem;">
                 You have already voted.
                 </div>';
     }
 }
+
+?>
+<div style="font-weight: bold; color: red; text-align: center; font-size: 30px;">
+<a href="userdashboard.php">Back</a>
+<a href="index.php">Logout</a>
+</div>
 
