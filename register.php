@@ -263,7 +263,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label for="crn">CRN Number:<span style="color:red">*</span></label>
                 <input type="number" id="crn" name="crn" required>
                 <span class="error"><?php echo $crn_err; ?></span>
-
+            
                 <label for="username">Username:<span style="color:red">*</span></label>
                 <input type="text" id="username" name="username" required>
                 <span class="error"><?php echo $username_err; ?></span>

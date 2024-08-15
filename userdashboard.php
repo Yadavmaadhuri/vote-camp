@@ -52,7 +52,7 @@ $result = mysqli_query($conn, $sql);
     <div class="sidebar">
         <div class="profile">
             <h3 style="text-align:center;">Your Profile</h3>
-            <img src="assets/profile4.png" alt="profilelogo">
+            <img src="assets/orangeuser.png" alt="profilelogo">
            
             <p><strong>Name:</strong> <?php echo htmlspecialchars($user_name); ?></p>
             <p><strong>Crn:</strong> <?php echo htmlspecialchars($user_crn); ?></p>
