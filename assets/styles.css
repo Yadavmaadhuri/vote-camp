@@ -107,7 +107,7 @@ table td {
     border: 2px solid white; /* Thick border for the table cells */
     text-align: center;
     font-size: 18px; /* Optional: Increase font size for better readability */
-    background-color: rgb(222, 219, 219);
+    background-color: #dedbdb;
 }
 
 .candidate-name {
@@ -517,21 +517,21 @@ p {
  
 }
 
+   
 .sidebar {
-    width: 15%;
-    height: 5%;
-    margin: 20px;
-    padding: 30px;
-    background-color:white;
-    border: 1px solid #797777;
+    width: 300px;
+    padding: 20px;
+    background-color: white; /* Dark background */
+    color: black; /* White text */
+    border-radius: 8px;
+    text-align: center; /* Center all content inside */
+    margin:8%  ;
+    border: 2px solid #000;
 }
 
-
-
-.profile h2 {
-    margin-top: 0;
-}
-
-.profile p {
-    margin: 0px 0;
+.sidebar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 40%; 
+    margin-bottom: 15px;
 }

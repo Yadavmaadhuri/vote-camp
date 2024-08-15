@@ -51,7 +51,7 @@ $result = mysqli_query($conn, $sql);
 <div class="dashboard">
     <div class="sidebar">
         <div class="profile">
-            <h3 style="text-align:center;">Your Profile</h3>
+            <h3 style="text-align:center;">Your Profile</h3><br/>
             <img src="assets/orangeuser.png" alt="profilelogo">
            
             <p><strong>Name:</strong> <?php echo htmlspecialchars($user_name); ?></p>
