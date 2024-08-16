@@ -91,7 +91,7 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div>
 
-        <?php include 'afooter.php'; ?>
+        <?php include '../footer.php'; ?>
     </div>
 </body>
 </html>
