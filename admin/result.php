@@ -107,6 +107,6 @@ include_once '../config/database.php';
         ?>
     </div>
 </div>
-<?php include 'afooter.php'; ?>
+<?php include '../footer.php'; ?>
 </body>
 </html>

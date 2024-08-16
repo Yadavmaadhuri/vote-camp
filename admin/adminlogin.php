@@ -2,17 +2,25 @@
 session_start();
 require_once('../config/database.php');
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Sanitizng  the inputs
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     
     $sql = "SELECT * FROM sadmin WHERE adminusername = ? AND adminpassword = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $stmt = mysqli_prepare($conn, $sql);
     
-    if($result->num_rows == 1){
+    // Bind parameters
+    mysqli_stmt_bind_param($stmt, "ss", $username, $password); // 'ss' means two string parameters
+    
+    // Execute the statement
+    mysqli_stmt_execute($stmt);
+    
+    // Get the result
+    $result = mysqli_stmt_get_result($stmt);
+    
+    // Check if a matching row was found
+    if (mysqli_num_rows($result) == 1) {
         $_SESSION['uid'] = 1;
         header("Location: admindashboard.php");
         exit();
@@ -20,6 +28,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo "Invalid username or password.";
     }
 }
+//     // Close the statement
+//     mysqli_stmt_close($stmt);
+
+
+// // Close the database connection
+// mysqli_close($conn);
+?>
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

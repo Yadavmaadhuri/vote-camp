@@ -20,21 +20,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $crn_err = "CRN must be exactly 5 digits.";
 
         } else {
-            // Prepare and execute query to check if CRN already exists
-            $sql = "SELECT crn FROM users WHERE crn = ?";
-            if ($stmt = $conn->prepare($sql)) {
-                $stmt->bind_param("s", $crn);
-                $stmt->execute();
-                $stmt->store_result();
-                
-                if ($stmt->num_rows > 0) {
-                    $crn_err = "CRN already exists.";
-                }
-                
-                $stmt->close();
-            }
-        }
+           // Prepare and execute query to check if CRN already exists
+                    $sql = "SELECT crn FROM users WHERE crn = ?";
+                    $stmt = mysqli_prepare($conn, $sql);
+                    if ($stmt) {
+                        // Bind the parameters
+                        mysqli_stmt_bind_param($stmt, "s", $crn);
+
+                        mysqli_stmt_execute($stmt);
+                        
+                        // Store the result
+                        mysqli_stmt_store_result($stmt);
+                        
+                        // Check if CRN already exists
+                        if (mysqli_stmt_num_rows($stmt) > 0) {
+                            $crn_err = "CRN already exists.";
+                        }
+                        
+                        mysqli_stmt_close($stmt);
+                    }
+
     }
+}
 
     // Validate batch and faculty based on CRN
     if (empty($crn_err)) {
